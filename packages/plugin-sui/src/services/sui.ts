@@ -13,13 +13,18 @@ import { Signer } from "@mysten/sui/cryptography";
 import {
     Transaction,
     TransactionObjectArgument,
+    TransactionResult,
 } from "@mysten/sui/transactions";
+import { toBase64 } from "@mysten/sui/utils";
+import { initializeSuilend, LENDING_MARKET_ID, LENDING_MARKET_TYPE, SuilendClient } from '@suilend/sdk';
+import { getBalanceChange, getCoinMetadataMap, getHistoryPrice, getPrice, getToken } from "@suilend/frontend-sui";
+import { NORMALIZED_AUSD_COINTYPE, NORMALIZED_BLUE_COINTYPE, NORMALIZED_BTC_COINTYPES, NORMALIZED_ETH_COINTYPES, NORMALIZED_SOL_COINTYPE, NORMALIZED_USDC_COINTYPE, } from "@suilend/frontend-sui"
 
 const aggregatorURL = "https://api-sui.cetus.zone/router_v2/find_routes";
 
 interface SwapResult {
     success: boolean;
-    tx: string;
+    txBytesBase64: string;
     message: string;
 }
 
@@ -35,18 +40,67 @@ export class SuiService extends Service {
                 runtime.getSetting("SUI_NETWORK") as SuiNetwork
             ),
         });
+
         this.network = runtime.getSetting("SUI_NETWORK") as SuiNetwork;
         this.wallet = parseAccount(runtime);
         return null;
     }
 
+    async getAllBalances(address: string) {
+        try {
+            const balances = await this.suiClient.getAllBalances({ owner: address });
+            return balances;
+        } catch (error) {
+            elizaLogger.error('Error fetching balances:', error);
+            throw error;
+        }
+    }
+
+    async getStakes(address: string) {
+        try {
+            const stakes = await this.suiClient.getStakes({ owner: address });
+            return stakes;
+        } catch (error) {
+            elizaLogger.error('Error fetching stakes:', error);
+            throw error;
+        }
+    }
+
+    async getOwnedObjects(address: string, cursor?: string, limit: number = 8) {
+        try {
+            const objects = await this.suiClient.getOwnedObjects({
+                owner: address,
+                filter: {
+                    MatchNone: [
+                        {
+                            StructType: "0x2::coin::Coin"
+                        }
+                    ]
+                },
+                options: {
+                    showDisplay: true,
+                    showType: true
+                },
+                cursor,
+                limit
+            });
+            return objects;
+        } catch (error) {
+            elizaLogger.error('Error fetching owned objects:', error);
+            throw error;
+        }
+    }
+
+    async getBalance(address: string) {
+        const balance = await this.suiClient.getBalance({
+            owner: address,
+        });
+        return balance;
+    }
+
     async getTokenMetadata(token: string) {
         const meta = getTokenMetadata(token);
         return meta;
-    }
-
-    getAddress() {
-        return this.wallet.toSuiAddress();
     }
 
     getAmount(amount: string | number, meta: TokenMetadata) {
@@ -69,11 +123,24 @@ export class SuiService extends Service {
         }
     }
 
+    async getCoinAmount(amount: number, tokenAddress: string): Promise<bigint> {
+        const fromCoinAddressMetadata = await this.suiClient.getCoinMetadata({
+            coinType: tokenAddress,
+        });
+
+        if (!fromCoinAddressMetadata) {
+            throw new Error(`Invalid from coin address: ${tokenAddress}`);
+        }
+
+        return BigInt(amount * (10 ** fromCoinAddressMetadata.decimals));
+    }
+
     async swapToken(
         fromToken: string,
         amount: number | string,
         out_min_amount: number,
-        targetToken: string
+        targetToken: string,
+        address: string
     ): Promise<SwapResult> {
         const fromMeta = getTokenMetadata(fromToken);
         const toMeta = getTokenMetadata(targetToken);
@@ -81,7 +148,7 @@ export class SuiService extends Service {
         elizaLogger.info("To token metadata:", toMeta);
         const client = new AggregatorClient(
             aggregatorURL,
-            this.wallet.toSuiAddress(),
+            address,
             this.suiClient,
             Env.Mainnet
         );
@@ -116,15 +183,15 @@ export class SuiService extends Service {
         if (routerRes === null) {
             elizaLogger.error(
                 "No router found" +
-                    JSON.stringify({
-                        from: fromMeta.tokenAddress,
-                        target: toMeta.tokenAddress,
-                        amount: amount,
-                    })
+                JSON.stringify({
+                    from: fromMeta.tokenAddress,
+                    target: toMeta.tokenAddress,
+                    amount: amount,
+                })
             );
             return {
                 success: false,
-                tx: "",
+                txBytesBase64: null,
                 message: "No router found",
             };
         }
@@ -132,7 +199,7 @@ export class SuiService extends Service {
         if (routerRes.amountOut.toNumber() < out_min_amount) {
             return {
                 success: false,
-                tx: "",
+                txBytesBase64: null,
                 message: "Out amount is less than out_min_amount",
             };
         }
@@ -144,7 +211,7 @@ export class SuiService extends Service {
             coin = routerTx.splitCoins(routerTx.gas, [amount]);
         } else {
             const allCoins = await this.suiClient.getCoins({
-                owner: this.wallet.toSuiAddress(),
+                owner: address,
                 coinType: fromMeta.tokenAddress,
                 limit: 30,
             });
@@ -153,7 +220,7 @@ export class SuiService extends Service {
                 elizaLogger.error("No coins found");
                 return {
                     success: false,
-                    tx: "",
+                    txBytesBase64: null,
                     message: "No coins found",
                 };
             }
@@ -191,21 +258,354 @@ export class SuiService extends Service {
         //     ],
         //     typeArguments: [otherType],
         // });
-        routerTx.transferObjects([targetCoin], this.wallet.toSuiAddress());
-        routerTx.setSender(this.wallet.toSuiAddress());
-        const result = await client.signAndExecuteTransaction(
-            routerTx,
-            this.wallet
-        );
+        routerTx.transferObjects([targetCoin], address);
+        routerTx.setSender(address);
 
-        await this.suiClient.waitForTransaction({
-            digest: result.digest,
-        });
+        const txBytes = await routerTx.build({
+            client: this.suiClient,
+        })
+
+        const txBytesBase64 = toBase64(txBytes);
 
         return {
             success: true,
-            tx: result.digest,
-            message: "Swap successful",
+            txBytesBase64,
+            message: "Create swap transaction successful",
         };
     }
+
+    async getDefiPortfolio(address: string) {
+        try {
+            const response = await fetch(`https://apps-backend.sui.io/v1/defi/portfolio/${address}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            elizaLogger.error('Error fetching DeFi portfolio:', error);
+            throw error;
+        }
+    }
+
+    async getDefiMetadata() {
+        try {
+            const response = await fetch('https://apps-backend.sui.io/v1/defi/metadata');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            elizaLogger.error('Error fetching DeFi metadata:', error);
+            throw error;
+        }
+    }
+
+    async getPriceCoin(coinType: string) {
+        const price = await getPrice(coinType);
+        return price;
+    }
+
+    // async getHistoryPrice(coinType: string) {
+    //     const historyPrice = await getHistoryPrice(coinType);
+    //     return historyPrice;
+    // }
+
+    async getCoinMetadataMap(uniqueCoinTypes: string[]) {
+        const coinMetadataMap = await getCoinMetadataMap(this.suiClient, uniqueCoinTypes);
+        return coinMetadataMap;
+    }
+
+    async getToken(coinType: string) {
+        const tokenMetadata = await this.getCoinMetadataMap([coinType])[coinType];
+        const token = await getToken(coinType, tokenMetadata.tokenAddress);
+        return token;
+    }
+
+    async getTokenFromSymbol(symbol: string) {
+        const normalizedSymbol = symbol.toUpperCase();
+
+        // Check against normalized coin types
+        if (normalizedSymbol === 'USDC') return NORMALIZED_USDC_COINTYPE;
+        if (normalizedSymbol === 'BTC') return NORMALIZED_BTC_COINTYPES;
+        if (normalizedSymbol === 'ETH') return NORMALIZED_ETH_COINTYPES;
+        if (normalizedSymbol === 'SOL') return NORMALIZED_SOL_COINTYPE;
+        if (normalizedSymbol === 'BLUE') return NORMALIZED_BLUE_COINTYPE;
+        if (normalizedSymbol === 'AUSD') return NORMALIZED_AUSD_COINTYPE;
+
+        return null;
+    }
+
+    async depositBySuilend(
+        coinType: string,
+        amount: number,
+        address: string
+    ) {
+        try {
+            const suilendClient = await SuilendClient.initialize(
+                LENDING_MARKET_ID,
+                LENDING_MARKET_TYPE,
+                this.suiClient
+            );
+
+            const { coinMetadataMap, obligationOwnerCaps } = await initializeSuilend(
+                this.suiClient,
+                suilendClient,
+                address
+            );
+
+            if (!coinMetadataMap[coinType]) {
+                throw new Error(`Invalid coin type: ${coinType}`);
+            }
+
+            const total = await this.getCoinAmount(amount, coinType);
+
+            // Deposit
+            const tx = new Transaction();
+            tx.setSender(address);
+
+            // Create obligation if it doesn't exist
+            if (obligationOwnerCaps === undefined || obligationOwnerCaps.length === 0) {
+                // Create and deposit in the same transaction
+                const obligation = suilendClient.createObligation(tx);
+                tx.transferObjects([obligation], tx.pure.address(address));
+
+                // Use the obligation result directly for deposit
+                await suilendClient.depositIntoObligation(
+                    address,
+                    coinType,
+                    total.toString(),
+                    tx,
+                    obligation // Use the obligation result directly
+                );
+            } else {
+                // Use existing obligation for deposit
+                await suilendClient.depositIntoObligation(
+                    address,
+                    coinType,
+                    total.toString(),
+                    tx,
+                    obligationOwnerCaps[0].id
+                );
+            }
+
+            const txBytes = await tx.build({
+                client: this.suiClient,
+            })
+
+            const txBytesBase64 = toBase64(txBytes);
+
+            return {
+                success: true,
+                txBytesBase64,
+                message: "Create swap transaction successful",
+            };
+
+        } catch (error: any) {
+            console.error(
+                'Error depositing:',
+                error.message,
+                'Error stack trace:',
+                error.stack
+            );
+            throw new Error(`Failed to deposit: ${error.message}`);
+        }
+    }
+
+    async withdrawBySuilend(
+        coinType: string,
+        amount: number,
+        address: string
+    ) {
+        try {
+            const suilendClient = await SuilendClient.initialize(
+                LENDING_MARKET_ID,
+                LENDING_MARKET_TYPE,
+                this.suiClient
+            );
+
+            const { coinMetadataMap, obligationOwnerCaps, obligations } =
+                await initializeSuilend(
+                    this.suiClient,
+                    suilendClient,
+                    address
+                );
+
+            if (!obligationOwnerCaps || !obligations) {
+                throw new Error('Obligation not found');
+            }
+
+            if (!coinMetadataMap[coinType]) {
+                throw new Error(`Invalid coin type: ${coinType}`);
+            }
+
+            const total = await this.getCoinAmount(amount, coinType);
+
+            const tx = new Transaction();
+            tx.setSender(address);
+
+            await suilendClient.withdrawAndSendToUser(
+                address,
+                obligationOwnerCaps[0].id,
+                obligations[0].id,
+                coinType,
+                total.toString(),
+                tx
+            );
+
+            const txBytes = await tx.build({
+                client: this.suiClient,
+            })
+
+            const txBytesBase64 = toBase64(txBytes);
+
+            return {
+                success: true,
+                txBytesBase64,
+                message: "Create withdraw suilend transaction successful",
+            };
+
+
+        } catch (error: any) {
+            console.error(
+                'Error withdrawing:',
+                error.message,
+                'Error stack trace:',
+                error.stack
+            );
+            throw new Error(`Failed to withdraw: ${error.message}`);
+        }
+    }
+
+    async borrowBySuilend(
+        coinType: string,
+        amount: number,
+        address?: string
+    ) {
+        try {
+            const suilendClient = await SuilendClient.initialize(
+                LENDING_MARKET_ID,
+                LENDING_MARKET_TYPE,
+                this.suiClient
+            );
+
+            const { coinMetadataMap, obligationOwnerCaps, obligations } =
+                await initializeSuilend(
+                    this.suiClient,
+                    suilendClient,
+                    address
+                );
+
+            if (!obligationOwnerCaps || !obligations) {
+                throw new Error('Obligation not found');
+            }
+
+            if (!coinMetadataMap[coinType]) {
+                throw new Error(`Invalid coin type: ${coinType}`);
+            }
+
+            const total = await this.getCoinAmount(amount, coinType);
+
+            const tx = new Transaction();
+            tx.setSender(address);
+
+            await suilendClient.borrowAndSendToUser(
+                address as string,
+                obligationOwnerCaps[0].id,
+                obligations[0].id,
+                coinType,
+                total.toString(),
+                tx
+            );
+
+
+            const txBytes = await tx.build({
+                client: this.suiClient,
+            })
+
+            const txBytesBase64 = toBase64(txBytes);
+
+            return {
+                success: true,
+                txBytesBase64,
+                message: "Create borrow suilend transaction successful",
+            };
+
+        } catch (error: any) {
+            console.error(
+                'Error borrowing:',
+                error.message,
+                'Error stack trace:',
+                error.stack
+            );
+            throw new Error(`Failed to borrow: ${error.message}`);
+        }
+    }
+
+    async repayBySuilend(
+        coinType: string,
+        amount: number,
+        address: string
+    ) {
+        try {
+            const suilendClient = await SuilendClient.initialize(
+                LENDING_MARKET_ID,
+                LENDING_MARKET_TYPE,
+                this.suiClient
+            );
+
+            const { coinMetadataMap, obligationOwnerCaps, obligations } =
+                await initializeSuilend(
+                    this.suiClient,
+                    suilendClient,
+                    address
+                );
+
+            if (!obligationOwnerCaps || !obligations) {
+                throw new Error('Obligation not found');
+            }
+
+            if (!coinMetadataMap[coinType]) {
+                throw new Error(`Invalid coin type: ${coinType}`);
+            }
+
+            const total = await this.getCoinAmount(amount, coinType);
+
+            const tx = new Transaction();
+            tx.setSender(address);
+
+            await suilendClient.repayIntoObligation(
+                address,
+                obligations[0].id,
+                coinType,
+                total.toString(),
+                tx
+            );
+
+            const txBytes = await tx.build({
+                client: this.suiClient,
+            })
+
+            const txBytesBase64 = toBase64(txBytes);
+
+            return {
+                success: true,
+                txBytesBase64,
+                message: "Create repay suilend transaction successful",
+            };
+
+        } catch (error: any) {
+            console.error(
+                'Error repaying:',
+                error.message,
+                'Error stack trace:',
+                error.stack
+            );
+            throw new Error(`Failed to repay: ${error.message}`);
+        }
+    }
+
 }
+
+// https://apps-backend.sui.io/guardian/object-list

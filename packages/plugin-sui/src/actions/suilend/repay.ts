@@ -14,54 +14,37 @@ import {
     generateText,
     type Action,
 } from "@elizaos/core";
-import { SuiService } from "../services/sui";
 import { z } from "zod";
-
-export interface SwapPayload extends Content {
-    from_token: string;
-    destination_token: string;
-    amount: string | number;
-}
-
-function isSwapContent(content: Content): content is SwapPayload {
-    console.log("Content for transfer", content);
-    return (
-        typeof content.from_token === "string" &&
-        typeof content.destination_token === "string" &&
-        (typeof content.amount === "string" ||
-            typeof content.amount === "number")
-    );
-}
+import { SuiLendService } from "../../services/suilend";
+import { SuiService } from "../../services/sui";
+import { NORMALIZED_DEEP_COINTYPE, SUI_COINTYPE } from "@suilend/frontend-sui";
 
 const swapTemplate = `Respond with a JSON markdown block containing only the extracted values. Use null for any values that cannot be determined.
 
 Example response:
 \`\`\`json
 {
-    "from_token": "sui",
-    "destination_token": "usdc",
+    "coin_type": "sui",
     "amount": "1"
 }
 \`\`\`
 
 {{recentMessages}}
 
-Given the recent messages, extract the following information about the requested token swap:
-- Source Token you want to swap from
-- Destination token you want to swap to
-- Source Token Amount to swap
+Given the recent messages, extract the following information about the requested token repay:
+- Coin type you want to repay
+- Amount to repay
 
 
 Respond with a JSON markdown block containing only the extracted values.`;
 
 export default {
-    name: "SWAP_TOKEN",
-    similes: ["SWAP_TOKENS"],
+    name: "REPAY_TOKEN",
+    similes: ["REPAY_TOKENS"],
     validate: async (runtime: IAgentRuntime, message: Memory) => {
-        console.log("Validating sui transfer from user:", message.userId);
         return true;
     },
-    description: "Swap from any token in the agent's wallet to another token",
+    description: "Repay a token to the suilend protocol",
     handler: async (
         runtime: IAgentRuntime,
         message: Memory,
@@ -69,28 +52,28 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        const context = `
-        Extract only the address from this message: "${message.content.text}"
-        Rules:
-        - Return ONLY the address without any explanation
-        - Do not include quotes or punctuation
-        - Do not include phrases like "I think" or "the address is"
-        `;
+        // const context = `
+        // Extract only the address from this message: "${message.content.text}"
+        // Rules:
+        // - Return ONLY the address without any explanation
+        // - Do not include quotes or punctuation
+        // - Do not include phrases like "I think" or "the address is"
+        // `;
 
-        const response = await generateText({
-            runtime: runtime,
-            context,
-            modelClass: ModelClass.MEDIUM,
-            stop: ["\n"],
-        });
+        // const response = await generateText({
+        //     runtime: runtime,
+        //     context,
+        //     modelClass: ModelClass.MEDIUM,
+        //     stop: ["\n"],
+        // });
 
-        const address = response.trim();
+        // const address = response.trim();
 
-        elizaLogger.info(`Address: ${address}`);
+        // elizaLogger.info(`Address: ${address}`);
 
-        elizaLogger.log("Starting SWAP_TOKEN handler...");
+        // elizaLogger.log("Starting SWAP_TOKEN handler...");
 
-        const service = runtime.getService<SuiService>(
+        const suiService = runtime.getService<SuiService>(
             ServiceType.TRANSCRIPTION
         );
 
@@ -102,17 +85,17 @@ export default {
         }
 
         // Define the schema for the expected output
-        const swapSchema = z.object({
-            from_token: z.string(),
-            destination_token: z.string(),
-            amount: z.union([z.string(), z.number()]),
-        });
+        // const swapSchema = z.object({
+        //     from_token: z.string(),
+        //     destination_token: z.string(),
+        //     amount: z.union([z.string(), z.number()]),
+        // });
 
         // Compose transfer context
-        const swapContext = composeContext({
-            state,
-            template: swapTemplate,
-        });
+        // const swapContext = composeContext({
+        //     state,
+        //     template: swapTemplate,
+        // });
 
         // Generate transfer content with the schema
         // const content = await generateObject({
@@ -126,20 +109,15 @@ export default {
         // const swapContent = content.object as SwapPayload;
         // elizaLogger.info("Swap content:", swapContent);
 
-        const result = await service.swapToken(
-            "SUI",
-            "1",
-            0,
-            "USDC",
-            address
-        );
+        elizaLogger.info(`${suiService.repayBySuilend}`);
+
+        const result = await suiService.repayBySuilend(SUI_COINTYPE, 1, "0xb4b291607e91da4654cab88e5e35ba2921ef68f1b43725ef2faeae045bf5915d")
 
 
         callback({
-            text: "Successfully swapped 1 SUI to USDC, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
+            text: "Successfully repaid 1 SUI to suilend, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
             content: {
-                from_token: "Sui",
-                destination_token: "usdc",
+                coin_type: SUI_COINTYPE,
                 amount: 1,
             },
             params: {
@@ -243,20 +221,20 @@ export default {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Swap 1 SUI to USDC",
+                    text: "Deposit 1 SUI to suilend",
                 },
             },
             {
                 user: "{{user2}}",
                 content: {
-                    text: "I'll help you swap 1 SUI to USDC now...",
-                    action: "SWAP_TOKEN",
+                    text: "I'll help you deposit 1 SUI to suilend now...",
+                    action: "DEPOSIT_TOKEN",
                 },
             },
             {
                 user: "{{user2}}",
                 content: {
-                    text: "Successfully swapped 1 SUI to USDC, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
+                    text: "Successfully deposited 1 SUI to suilend, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
                 },
             },
         ],
@@ -264,20 +242,20 @@ export default {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Swap 1 USDC to SUI",
+                    text: "Deposit 1 USDC to suilend",
                 },
             },
             {
                 user: "{{user2}}",
                 content: {
-                    text: "I'll help you swap 1 SUI to USDC now...",
-                    action: "SWAP_TOKEN",
+                    text: "I'll help you deposit 1 USDC to suilend now...",
+                    action: "DEPOSIT_TOKEN",
                 },
             },
             {
                 user: "{{user2}}",
                 content: {
-                    text: "Successfully swapped 1 SUI to USDC, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
+                    text: "Successfully deposited 1 USDC to suilend, Transaction: 0x39a8c432d9bdad993a33cc1faf2e9b58fb7dd940c0425f1d6db3997e4b4b05c0",
                 },
             },
         ],

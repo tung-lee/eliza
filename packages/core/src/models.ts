@@ -1149,6 +1149,16 @@ export const models: Models = {
                 maxOutputTokens: 8192,
                 temperature: 0.7,
             },
+            [ModelClass.EMBEDDING]: {
+                name:
+                    settings.EMBEDDING_ATOMA_MODEL ||
+                    "intfloat/multilingual-e5-large-instruct",
+            },
+            [ModelClass.IMAGE]: {
+                name:
+                    settings.IMAGE_ATOMA_MODEL ||
+                    "black-forest-labs/FLUX.1-schnell",
+            },
         },
     },
 };

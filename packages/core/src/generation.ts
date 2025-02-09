@@ -367,6 +367,8 @@ export async function generateText({
         return "";
     }
 
+    elizaLogger.log(`The context is ${context}`);
+
     elizaLogger.log("Generating text...");
 
     elizaLogger.info("Generating text with options:", {
@@ -1655,33 +1657,33 @@ export const generateImage = async (
         runtime.imageModelProvider === runtime.modelProvider
             ? runtime.token
             : (() => {
-                  // First try to match the specific provider
-                  switch (runtime.imageModelProvider) {
-                      case ModelProviderName.HEURIST:
-                          return runtime.getSetting("HEURIST_API_KEY");
-                      case ModelProviderName.TOGETHER:
-                          return runtime.getSetting("TOGETHER_API_KEY");
-                      case ModelProviderName.FAL:
-                          return runtime.getSetting("FAL_API_KEY");
-                      case ModelProviderName.OPENAI:
-                          return runtime.getSetting("OPENAI_API_KEY");
-                      case ModelProviderName.VENICE:
-                          return runtime.getSetting("VENICE_API_KEY");
-                      case ModelProviderName.LIVEPEER:
-                          return runtime.getSetting("LIVEPEER_GATEWAY_URL");
-                      default:
-                          // If no specific match, try the fallback chain
-                          return (
-                              runtime.getSetting("HEURIST_API_KEY") ??
-                              runtime.getSetting("NINETEEN_AI_API_KEY") ??
-                              runtime.getSetting("TOGETHER_API_KEY") ??
-                              runtime.getSetting("FAL_API_KEY") ??
-                              runtime.getSetting("OPENAI_API_KEY") ??
-                              runtime.getSetting("VENICE_API_KEY") ??
-                              runtime.getSetting("LIVEPEER_GATEWAY_URL")
-                          );
-                  }
-              })();
+                // First try to match the specific provider
+                switch (runtime.imageModelProvider) {
+                    case ModelProviderName.HEURIST:
+                        return runtime.getSetting("HEURIST_API_KEY");
+                    case ModelProviderName.TOGETHER:
+                        return runtime.getSetting("TOGETHER_API_KEY");
+                    case ModelProviderName.FAL:
+                        return runtime.getSetting("FAL_API_KEY");
+                    case ModelProviderName.OPENAI:
+                        return runtime.getSetting("OPENAI_API_KEY");
+                    case ModelProviderName.VENICE:
+                        return runtime.getSetting("VENICE_API_KEY");
+                    case ModelProviderName.LIVEPEER:
+                        return runtime.getSetting("LIVEPEER_GATEWAY_URL");
+                    default:
+                        // If no specific match, try the fallback chain
+                        return (
+                            runtime.getSetting("HEURIST_API_KEY") ??
+                            runtime.getSetting("NINETEEN_AI_API_KEY") ??
+                            runtime.getSetting("TOGETHER_API_KEY") ??
+                            runtime.getSetting("FAL_API_KEY") ??
+                            runtime.getSetting("OPENAI_API_KEY") ??
+                            runtime.getSetting("VENICE_API_KEY") ??
+                            runtime.getSetting("LIVEPEER_GATEWAY_URL")
+                        );
+                }
+            })();
     try {
         if (runtime.imageModelProvider === ModelProviderName.HEURIST) {
             const response = await fetch(
@@ -1800,13 +1802,13 @@ export const generateImage = async (
                 seed: data.seed ?? 6252023,
                 ...(runtime.getSetting("FAL_AI_LORA_PATH")
                     ? {
-                          loras: [
-                              {
-                                  path: runtime.getSetting("FAL_AI_LORA_PATH"),
-                                  scale: 1,
-                              },
-                          ],
-                      }
+                        loras: [
+                            {
+                                path: runtime.getSetting("FAL_AI_LORA_PATH"),
+                                scale: 1,
+                            },
+                        ],
+                    }
                     : {}),
             };
 
@@ -2192,6 +2194,7 @@ export async function handleProvider(
             return await handleGrok(options);
         case ModelProviderName.GROQ:
             return await handleGroq(options);
+        case ModelProviderName.ATOMA:
         case ModelProviderName.LLAMALOCAL:
             return await generateObjectDeprecated({
                 runtime,
