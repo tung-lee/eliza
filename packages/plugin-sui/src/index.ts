@@ -11,7 +11,22 @@ import withdraw from "./actions/suilend/withdraw.ts";
 import repay from "./actions/suilend/repay.ts";
 import borrow from "./actions/suilend/borrow.ts";
 
-export { WalletProvider, transferToken as TransferSuiToken };
+// Export all actions
+export {
+    transferToken,
+    swapToken,
+    deposit,
+    getBalance,
+    getToken,
+    getPortfolio,
+    withdraw,
+    repay,
+    borrow
+};
+
+// Export providers and services
+export { WalletProvider, walletProvider };
+export { SuiService };
 
 export const suiPlugin: Plugin = {
     name: "sui",
