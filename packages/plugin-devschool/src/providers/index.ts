@@ -1,0 +1,1 @@
+export * from "./randomEmotion.ts";
