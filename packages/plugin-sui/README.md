@@ -170,3 +170,12 @@ For more information about Sui blockchain capabilities:
 ## License
 
 This plugin is part of the Eliza project. See the main project repository for license information.
+
+## Note
+
+This plugin is under active development. While functional, we are continuously working on optimizing its performance and AI model interactions. Future updates will include improvements to:
+
+- Model response optimization
+- Processing efficiency
+- Integration patterns
+- Error handling

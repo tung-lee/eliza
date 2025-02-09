@@ -16,6 +16,9 @@ import {
 } from "@elizaos/core";
 import { SuiService } from "../../services/sui";
 import { z } from "zod";
+import { extractAddress, extractCoinSymbol } from "../utils";
+import { SuiAction } from "../enum";
+import { SUI_COINTYPE } from "@suilend/frontend-sui";
 
 export interface SwapPayload extends Content {
     from_token: string;
@@ -38,30 +41,30 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
+        elizaLogger.log("Starting GET_BALANCE handler...");
 
-        const context = `
-Extract only the address from this message: "${message.content.text}"
-Rules:
-- Return ONLY the address without any explanation
-- Do not include quotes or punctuation
-- Do not include phrases like "I think" or "the address is"
-`;
-
-        const response = await generateText({
-            runtime: runtime,
-            context,
-            modelClass: ModelClass.MEDIUM,
-        });
-
-        const address = response.trim();
+        const address = await extractAddress(runtime, message.content.text);
 
         elizaLogger.info(`Address: ${address}`);
 
-        elizaLogger.log("Starting GET_BALANCE handler...");
+        const coinSymbol = await extractCoinSymbol(runtime, message.content.text);
+
+        elizaLogger.info(`Coin Symbol: ${coinSymbol}`);
 
         const service = runtime.getService<SuiService>(
             ServiceType.TRANSCRIPTION
         );
+
+        const coinType = await service.getTokenFromSymbol(coinSymbol) as string;
+
+        if (!coinType) {
+            callback({
+                text: `Failed to get the balance from address: ${coinSymbol} is not a valid coin symbol`,
+                action: SuiAction.GET_BALANCE
+            });
+
+            return false;
+        }
 
         if (!state) {
             // Initialize or update state
@@ -70,115 +73,36 @@ Rules:
             state = await runtime.updateRecentMessageState(state);
         }
 
-        const balance = await service.getBalance(address);
+        try {
+            const balance = await service.getBalance(address, coinType);
 
-        callback({
-            text: "Successfully get the balance from address",
-            content: {
-                balance
-            },
-            params: {
-                balance
-            },
-        });
+            callback({
+                text: "Successfully get the balance from address",
+                params: {
+                    balance
+                },
+                action: SuiAction.GET_BALANCE
+            });
 
-        // if (service.getNetwork() == "mainnet") {
-        //     // Validate transfer content
-        //     if (!isSwapContent(swapContent)) {
-        //         console.error("Invalid content for SWAP_TOKEN action.");
-        //         if (callback) {
-        //             callback({
-        //                 text: "Unable to process swap request. Invalid content provided.",
-        //                 content: { error: "Invalid transfer content" },
-        //             });
-        //         }
-        //         return false;
-        //     }
+            SUI_COINTYPE
 
-        //     const destinationToken = await service.getTokenMetadata(
-        //         swapContent.destination_token
-        //     );
+            return true;
+        } catch (err) {
 
-        //     elizaLogger.log("Destination token:", destinationToken);
+            callback({
+                text: `Failed to get the balance from address: ${err}`,
+                action: SuiAction.GET_BALANCE
+            });
 
-        //     const fromToken = await service.getTokenMetadata(
-        //         swapContent.from_token
-        //     );
-
-        //     elizaLogger.log("From token:", fromToken);
-
-        //     // one action only can call one callback to save new message.
-        //     // runtime.processActions
-        //     if (destinationToken && fromToken) {
-        //         try {
-        //             const swapAmount = service.getAmount(
-        //                 swapContent.amount,
-        //                 fromToken
-        //             );
-
-        //             elizaLogger.info("Swap amount:", swapAmount);
-
-        //             elizaLogger.info(
-        //                 "Destination token address:",
-        //                 destinationToken.tokenAddress
-        //             );
-
-        //             elizaLogger.info(
-        //                 "From token address:",
-        //                 fromToken.tokenAddress
-        //             );
-
-        //             elizaLogger.info("Swap amount:", swapAmount);
-
-        //             const result = await service.swapToken(
-        //                 fromToken.symbol,
-        //                 swapAmount.toString(),
-        //                 0,
-        //                 destinationToken.symbol
-        //             );
-
-        //             if (result.success) {
-        //                 callback({
-        //                     text: `Successfully swapped ${swapContent.amount} ${swapContent.from_token} to  ${swapContent.destination_token}, Transaction: ${service.getTransactionLink(
-        //                         result.tx
-        //                     )}`,
-        //                     content: swapContent,
-        //                 });
-        //             }
-        //         } catch (error) {
-        //             elizaLogger.error("Error swapping token:", error);
-        //             callback({
-        //                 text: `Failed to swap ${error}, swapContent : ${JSON.stringify(
-        //                     swapContent
-        //                 )}`,
-        //                 content: { error: "Failed to swap token" },
-        //             });
-        //         }
-        //     } else {
-        //         callback({
-        //             text: `destination token: ${swapContent.destination_token} or from token: ${swapContent.from_token} not found`,
-        //             content: { error: "Destination token not found" },
-        //         });
-        //     }
-        // } else {
-        //     callback({
-        //         text:
-        //             "Sorry, I can only swap on the mainnet, parsed params : " +
-        //             JSON.stringify(swapContent, null, 2),
-        //         content: { error: "Unsupported network" },
-        //     });
-        //     return false;
-        // }
-
-        return true;
+            return false;
+        }
     },
-
     examples: [
         [
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Get the balance from address",
+                    text: "Get sui balance from 0x57ad3f9b7e68bcd67b1ba8ee010ba718a59431616fe8c30ee9e50cf7d018fb16",
                 },
             },
             {
@@ -192,29 +116,16 @@ Rules:
                 user: "{{user2}}",
                 content: {
                     text: "Successfully get the balance from address",
+                    params: {
+                        balance: {
+                            coinType: "0x2::sui::SUI",
+                            coinObjectCount: 1,
+                            totalBalance: "2733034118",
+                            lockedBalance: {}
+                        }
+                    }
                 },
             },
-        ],
-        [
-            {
-                user: "{{user1}}",
-                content: {
-                    text: "Get the balance from address",
-                },
-            },
-            {
-                user: "{{user2}}",
-                content: {
-                    text: "I'll help you get the balance from address now...",
-                    action: "GET_BALANCE",
-                },
-            },
-            {
-                user: "{{user2}}",
-                content: {
-                    text: "Successfully get the balance from address",
-                },
-            },
-        ],
+        ]
     ] as ActionExample[][],
 } as Action;

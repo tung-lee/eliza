@@ -68,7 +68,7 @@ export default {
 
         elizaLogger.info(`Coin type: ${coinType}`);
 
-        const token = await suiService.getToken(coinType as string);
+        const token = await suiService.getTokenMetadata(coinType as string);
 
         elizaLogger.info(`Token: ${token}`);
 
