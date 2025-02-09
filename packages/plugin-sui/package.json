@@ -1,6 +1,6 @@
 {
-    "name": "@elizaos/plugin-sui",
-    "version": "0.1.8-alpha.1",
+    "name": "elizaos-plugin-sui",
+    "version": "0.1.8-alpha.2",
     "type": "module",
     "main": "dist/index.js",
     "module": "dist/index.js",
@@ -20,7 +20,7 @@
     ],
     "dependencies": {
         "@cetusprotocol/aggregator-sdk": "^0.3.21",
-        "@elizaos/core": "workspace:*",
+        "@elizaos/core": "0.1.9",
         "@mysten/sui": "^1.16.0",
         "@suilend/frontend-sui": "^0.2.42",
         "@suilend/sdk": "^1.1.38",
