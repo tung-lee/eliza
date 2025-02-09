@@ -18,25 +18,6 @@ import { z } from "zod";
 import { SuiService } from "../../services/sui";
 import { NORMALIZED_DEEP_COINTYPE, SUI_COINTYPE } from "@suilend/frontend-sui";
 
-const swapTemplate = `Respond with a JSON markdown block containing only the extracted values. Use null for any values that cannot be determined.
-
-Example response:
-\`\`\`json
-{
-    "coin_type": "sui",
-    "amount": "1"
-}
-\`\`\`
-
-{{recentMessages}}
-
-Given the recent messages, extract the following information about the requested token repay:
-- Coin type you want to repay
-- Amount to repay
-
-
-Respond with a JSON markdown block containing only the extracted values.`;
-
 export default {
     name: "REPAY_TOKEN",
     similes: ["REPAY_TOKENS"],
@@ -51,25 +32,6 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        // const context = `
-        // Extract only the address from this message: "${message.content.text}"
-        // Rules:
-        // - Return ONLY the address without any explanation
-        // - Do not include quotes or punctuation
-        // - Do not include phrases like "I think" or "the address is"
-        // `;
-
-        // const response = await generateText({
-        //     runtime: runtime,
-        //     context,
-        //     modelClass: ModelClass.MEDIUM,
-        //     stop: ["\n"],
-        // });
-
-        // const address = response.trim();
-
-        // elizaLogger.info(`Address: ${address}`);
-
         // elizaLogger.log("Starting SWAP_TOKEN handler...");
 
         const suiService = runtime.getService<SuiService>(

@@ -4,7 +4,7 @@ import {
     Service,
     ServiceType,
 } from "@elizaos/core";
-import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
+import { CoinMetadata, getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { parseAccount, SuiNetwork } from "../utils";
 import { AggregatorClient, Env } from "@cetusprotocol/aggregator-sdk";
 import BN from "bn.js";
@@ -17,8 +17,8 @@ import {
 } from "@mysten/sui/transactions";
 import { toBase64 } from "@mysten/sui/utils";
 import { initializeSuilend, LENDING_MARKET_ID, LENDING_MARKET_TYPE, SuilendClient } from '@suilend/sdk';
-import { getBalanceChange, getCoinMetadataMap, getHistoryPrice, getPrice, getToken } from "@suilend/frontend-sui";
-import { NORMALIZED_AUSD_COINTYPE, NORMALIZED_BLUE_COINTYPE, NORMALIZED_BTC_COINTYPES, NORMALIZED_ETH_COINTYPES, NORMALIZED_SOL_COINTYPE, NORMALIZED_USDC_COINTYPE, } from "@suilend/frontend-sui"
+import { getBalanceChange, getCoinMetadataMap, getHistoryPrice, getPrice, getToken, NORMALIZED_HIPPO_COINTYPE, NORMALIZED_kSUI_COINTYPE, NORMALIZED_NS_COINTYPE, NORMALIZED_SUI_COINTYPE, NORMALIZED_trevinSUI_COINTYPE, SUI_COINTYPE } from "@suilend/frontend-sui";
+import { NORMALIZED_AUSD_COINTYPE, NORMALIZED_BLUE_COINTYPE, NORMALIZED_BTC_COINTYPES, NORMALIZED_ETH_COINTYPES, NORMALIZED_SOL_COINTYPE, NORMALIZED_USDC_COINTYPE, NORMALIZED_wUSDT_COINTYPE, NORMALIZED_WETH_COINTYPE, NORMALIZED_DEEP_COINTYPE, NORMALIZED_BUCK_COINTYPE, NORMALIZED_wBTC_COINTYPE, NORMALIZED_LOFI_COINTYPE, NORMALIZED_MAYA_COINTYPE, NORMALIZED_TREATS_COINTYPE } from "@suilend/frontend-sui"
 
 const aggregatorURL = "https://api-sui.cetus.zone/router_v2/find_routes";
 
@@ -91,17 +91,18 @@ export class SuiService extends Service {
         }
     }
 
-    async getBalance(address: string) {
+    async getBalance(address: string, coinType?: string) {
         const balance = await this.suiClient.getBalance({
             owner: address,
+            coinType
         });
         return balance;
     }
 
-    async getTokenMetadata(token: string) {
-        const meta = getTokenMetadata(token);
-        return meta;
-    }
+    // async getTokenMetadata(token: string) {
+    //     const meta = getTokenMetadata(token);
+    //     return meta;
+    // }
 
     getAmount(amount: string | number, meta: TokenMetadata) {
         return BigInt(Number(amount) * Math.pow(10, meta.decimals));
@@ -314,13 +315,14 @@ export class SuiService extends Service {
 
     async getCoinMetadataMap(uniqueCoinTypes: string[]) {
         const coinMetadataMap = await getCoinMetadataMap(this.suiClient, uniqueCoinTypes);
+        elizaLogger.info(coinMetadataMap);
         return coinMetadataMap;
     }
 
-    async getToken(coinType: string) {
-        const tokenMetadata = await this.getCoinMetadataMap([coinType])[coinType];
-        const token = await getToken(coinType, tokenMetadata.tokenAddress);
-        return token;
+    async getTokenMetadata(coinType: string) {
+        const coinMetadataMap = await this.getCoinMetadataMap([coinType]);
+        const tokenMetadata = coinMetadataMap[coinType];
+        return tokenMetadata;
     }
 
     async getTokenFromSymbol(symbol: string) {
@@ -333,6 +335,19 @@ export class SuiService extends Service {
         if (normalizedSymbol === 'SOL') return NORMALIZED_SOL_COINTYPE;
         if (normalizedSymbol === 'BLUE') return NORMALIZED_BLUE_COINTYPE;
         if (normalizedSymbol === 'AUSD') return NORMALIZED_AUSD_COINTYPE;
+        if (normalizedSymbol === 'SUI') return NORMALIZED_SUI_COINTYPE;
+        if (normalizedSymbol === 'USDT') return NORMALIZED_wUSDT_COINTYPE;
+        if (normalizedSymbol === 'WETH') return NORMALIZED_WETH_COINTYPE;
+        if (normalizedSymbol === 'DEEP') return NORMALIZED_DEEP_COINTYPE;
+        if (normalizedSymbol === 'BUCK') return NORMALIZED_BUCK_COINTYPE;
+        if (normalizedSymbol === 'WBTC') return NORMALIZED_wBTC_COINTYPE;
+        if (normalizedSymbol === 'LOFI') return NORMALIZED_LOFI_COINTYPE;
+        if (normalizedSymbol === 'MAYA') return NORMALIZED_MAYA_COINTYPE;
+        if (normalizedSymbol === 'TREATS') return NORMALIZED_TREATS_COINTYPE;
+        if (normalizedSymbol === 'NS') return NORMALIZED_NS_COINTYPE;
+        if (normalizedSymbol === 'HIPPO') return NORMALIZED_HIPPO_COINTYPE;
+        if (normalizedSymbol === 'kSUI') return NORMALIZED_kSUI_COINTYPE;
+        if (normalizedSymbol === 'trevinSUI') return NORMALIZED_trevinSUI_COINTYPE;
 
         return null;
     }

@@ -16,6 +16,7 @@ import {
 } from "@elizaos/core";
 import { SuiService } from "../services/sui";
 import { z } from "zod";
+import { extractAddress } from "./utils";
 
 export interface SwapPayload extends Content {
     from_token: string;
@@ -69,26 +70,11 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        const context = `
-        Extract only the address from this message: "${message.content.text}"
-        Rules:
-        - Return ONLY the address without any explanation
-        - Do not include quotes or punctuation
-        - Do not include phrases like "I think" or "the address is"
-        `;
+        elizaLogger.log("Starting SWAP_TOKEN handler...");
 
-        const response = await generateText({
-            runtime: runtime,
-            context,
-            modelClass: ModelClass.MEDIUM,
-            stop: ["\n"],
-        });
-
-        const address = response.trim();
+        const address = await extractAddress(runtime, message.content.text);
 
         elizaLogger.info(`Address: ${address}`);
-
-        elizaLogger.log("Starting SWAP_TOKEN handler...");
 
         const service = runtime.getService<SuiService>(
             ServiceType.TRANSCRIPTION
