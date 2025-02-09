@@ -14,9 +14,8 @@ import {
     generateText,
     type Action,
 } from "@elizaos/core";
-import { SuiService } from "../../services/agent/sui";
+import { SuiService } from "../../services/sui";
 import { z } from "zod";
-import { SuiLendService } from "../../services/suilend";
 
 export default {
     name: "GET_METADATA_TOKEN",
@@ -54,7 +53,7 @@ export default {
 
         elizaLogger.log("Starting GET_TOKEN handler...");
 
-        const suiLendService = runtime.getService<SuiLendService>(
+        const suiService = runtime.getService<SuiService>(
             ServiceType.TRANSCRIPTION
         );
 
@@ -65,11 +64,11 @@ export default {
             state = await runtime.updateRecentMessageState(state);
         }
 
-        const coinType = await suiLendService.getTokenFromSymbol(symbol);
+        const coinType = await suiService.getTokenFromSymbol(symbol);
 
         elizaLogger.info(`Coin type: ${coinType}`);
 
-        const token = await suiLendService.getToken(coinType as string);
+        const token = await suiService.getToken(coinType as string);
 
         elizaLogger.info(`Token: ${token}`);
 

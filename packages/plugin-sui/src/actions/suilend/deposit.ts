@@ -15,7 +15,6 @@ import {
     type Action,
 } from "@elizaos/core";
 import { z } from "zod";
-import { SuiLendService } from "../../services/suilend";
 import { SuiService } from "../../services/sui";
 
 const swapTemplate = `Respond with a JSON markdown block containing only the extracted values. Use null for any values that cannot be determined.

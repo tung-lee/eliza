@@ -15,7 +15,6 @@ import {
     type Action,
 } from "@elizaos/core";
 import { z } from "zod";
-import { SuiLendService } from "../../services/suilend";
 import { SuiService } from "../../services/sui";
 import { NORMALIZED_DEEP_COINTYPE } from "@suilend/frontend-sui";
 
