@@ -112,3 +112,25 @@ export const analyzeSentimentPrompt = (textContent: string) => {
         IMPORTANT: Return only one word - LEGITIMATE or SCAM or NEUTRAL. No other text allowed.
         `;
 }
+
+export const analyzePostPrompt = (textContent: string, datapost: string) => {
+    return `
+        Analyze this post: "${textContent}" using this data: "${datapost}"
+        Provide a brief analysis with:
+
+1. Key Metrics:
+   - Engagement stats
+   - Sentiment (positive/negative/neutral)
+
+2. Quick Analysis:
+   - Topic category
+   - Main points
+   - Market impact
+
+3. Action Items:
+   - Key takeaway
+   - Risk factors
+
+Be specific and data-focused. Keep it brief.
+    `;
+}
