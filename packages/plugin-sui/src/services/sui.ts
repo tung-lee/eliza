@@ -8,14 +8,13 @@ import { CoinMetadata, getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { parseAccount, SuiNetwork } from "../utils";
 import { AggregatorClient, Env } from "@cetusprotocol/aggregator-sdk";
 import BN from "bn.js";
-import { getTokenMetadata, TokenMetadata } from "../tokens";
 import { Signer } from "@mysten/sui/cryptography";
 import {
     Transaction,
     TransactionObjectArgument,
     TransactionResult,
 } from "@mysten/sui/transactions";
-import { toBase64 } from "@mysten/sui/utils";
+import { SUI_DECIMALS, toBase64 } from "@mysten/sui/utils";
 import { initializeSuilend, LENDING_MARKET_ID, LENDING_MARKET_TYPE, SuilendClient } from '@suilend/sdk';
 import { getBalanceChange, getCoinMetadataMap, getHistoryPrice, getPrice, getToken, NORMALIZED_HIPPO_COINTYPE, NORMALIZED_kSUI_COINTYPE, NORMALIZED_NS_COINTYPE, NORMALIZED_SUI_COINTYPE, NORMALIZED_trevinSUI_COINTYPE, SUI_COINTYPE } from "@suilend/frontend-sui";
 import { NORMALIZED_AUSD_COINTYPE, NORMALIZED_BLUE_COINTYPE, NORMALIZED_BTC_COINTYPES, NORMALIZED_ETH_COINTYPES, NORMALIZED_SOL_COINTYPE, NORMALIZED_USDC_COINTYPE, NORMALIZED_wUSDT_COINTYPE, NORMALIZED_WETH_COINTYPE, NORMALIZED_DEEP_COINTYPE, NORMALIZED_BUCK_COINTYPE, NORMALIZED_wBTC_COINTYPE, NORMALIZED_LOFI_COINTYPE, NORMALIZED_MAYA_COINTYPE, NORMALIZED_TREATS_COINTYPE } from "@suilend/frontend-sui"
@@ -99,15 +98,6 @@ export class SuiService extends Service {
         return balance;
     }
 
-    // async getTokenMetadata(token: string) {
-    //     const meta = getTokenMetadata(token);
-    //     return meta;
-    // }
-
-    getAmount(amount: string | number, meta: TokenMetadata) {
-        return BigInt(Number(amount) * Math.pow(10, meta.decimals));
-    }
-
     getNetwork() {
         return this.network;
     }
@@ -137,16 +127,12 @@ export class SuiService extends Service {
     }
 
     async swapToken(
-        fromToken: string,
+        fromTokenAddress: string,
         amount: number | string,
         out_min_amount: number,
-        targetToken: string,
+        targetTokenAddress: string,
         address: string
     ): Promise<SwapResult> {
-        const fromMeta = getTokenMetadata(fromToken);
-        const toMeta = getTokenMetadata(targetToken);
-        elizaLogger.info("From token metadata:", fromMeta);
-        elizaLogger.info("To token metadata:", toMeta);
         const client = new AggregatorClient(
             aggregatorURL,
             address,
@@ -155,8 +141,8 @@ export class SuiService extends Service {
         );
         // provider list : https://api-sui.cetus.zone/router_v2/status
         const routerRes = await client.findRouters({
-            from: fromMeta.tokenAddress,
-            target: toMeta.tokenAddress,
+            from: fromTokenAddress,
+            target: targetTokenAddress,
             amount: new BN(amount),
             byAmountIn: true, // `true` means fix input amount, `false` means fix output amount
             depth: 3, // max allow 3, means 3 hops
@@ -185,8 +171,8 @@ export class SuiService extends Service {
             elizaLogger.error(
                 "No router found" +
                 JSON.stringify({
-                    from: fromMeta.tokenAddress,
-                    target: toMeta.tokenAddress,
+                    from: fromTokenAddress,
+                    target: targetTokenAddress,
                     amount: amount,
                 })
             );
@@ -208,12 +194,12 @@ export class SuiService extends Service {
         let coin: TransactionObjectArgument;
         const routerTx = new Transaction();
 
-        if (fromToken.toUpperCase() === "SUI") {
+        if (fromTokenAddress === "0x0000000000000000000000000000000000000000000000000000000000000002::sui::SUI") {
             coin = routerTx.splitCoins(routerTx.gas, [amount]);
         } else {
             const allCoins = await this.suiClient.getCoins({
                 owner: address,
-                coinType: fromMeta.tokenAddress,
+                coinType: fromTokenAddress,
                 limit: 30,
             });
 
@@ -287,6 +273,28 @@ export class SuiService extends Service {
             elizaLogger.error('Error fetching DeFi portfolio:', error);
             throw error;
         }
+    }
+
+    async transferToken(amount: string, senderAddress: string, recipientAddress: string) {
+        const adjustedAmount = BigInt(
+            Number(amount) * Math.pow(10, SUI_DECIMALS)
+        );
+        const tx = new Transaction();
+        const [coin] = tx.splitCoins(tx.gas, [adjustedAmount]);
+        tx.transferObjects([coin], recipientAddress);
+        tx.setSender(senderAddress);
+
+        const txBytes = await tx.build({
+            client: this.suiClient,
+        })
+
+        const txBytesBase64 = toBase64(txBytes);
+
+        return {
+            success: true,
+            txBytesBase64,
+            message: "Create transfer transaction successful",
+        };
     }
 
     async getDefiMetadata() {

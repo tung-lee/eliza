@@ -33,34 +33,47 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting GET_PORTFOLIO handler...");
+        try {
+            elizaLogger.log("Starting GET_PORTFOLIO handler...");
 
-        const address = await extractAddress(runtime, message.content.text);
+            const address = await extractAddress(runtime, message.content.text);
 
-        elizaLogger.info(`Address: ${address}`);
+            elizaLogger.info(`Address: ${address}`);
 
-        const service = runtime.getService<SuiService>(
-            ServiceType.TRANSCRIPTION
-        );
+            const service = runtime.getService<SuiService>(
+                ServiceType.TRANSCRIPTION
+            );
 
-        if (!state) {
-            // Initialize or update state
-            state = (await runtime.composeState(message)) as State;
-        } else {
-            state = await runtime.updateRecentMessageState(state);
+            if (!state) {
+                // Initialize or update state
+                state = (await runtime.composeState(message)) as State;
+            } else {
+                state = await runtime.updateRecentMessageState(state);
+            }
+
+            const portfolio = await service.getDefiPortfolio(address);
+
+            callback({
+                text: `Successfully get the portfolio from ${address}`,
+                params: {
+                    portfolio
+                },
+                action: SuiAction.GET_PORTFOLIO
+            });
+
+            return true;
+        } catch (err) {
+            elizaLogger.error(`Failed to get the portfolio from address: ${err}`);
+
+            callback({
+                text: `Failed to get the portfolio from address: ${err}`,
+                action: SuiAction.GET_PORTFOLIO
+            });
+
+            return false;
         }
 
-        const portfolio = await service.getDefiPortfolio(address);
 
-        callback({
-            text: `Successfully get the portfolio from ${address}`,
-            params: {
-                portfolio
-            },
-            action: SuiAction.GET_PORTFOLIO
-        });
-
-        return true;
     },
 
     examples: [

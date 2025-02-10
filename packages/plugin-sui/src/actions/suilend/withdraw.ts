@@ -34,34 +34,46 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting WITHDRAW_TOKEN handler...");
+        try {
+            elizaLogger.log("Starting WITHDRAW_TOKEN handler...");
 
-        const suiService = runtime.getService<SuiService>(
-            ServiceType.TRANSCRIPTION
-        );
+            const suiService = runtime.getService<SuiService>(
+                ServiceType.TRANSCRIPTION
+            );
 
-        if (!state) {
-            // Initialize or update state
-            state = (await runtime.composeState(message)) as State;
-        } else {
-            state = await runtime.updateRecentMessageState(state);
+            if (!state) {
+                // Initialize or update state
+                state = (await runtime.composeState(message)) as State;
+            } else {
+                state = await runtime.updateRecentMessageState(state);
+            }
+
+            const { address, amount, coinSymbol, coinType, coinMetadata } = await extractSuiLendAction(runtime, message, suiService);
+
+            const result = await suiService.withdrawBySuilend(coinType, Number(amount), address)
+
+            callback({
+                text: `Successfully withdrew ${amount} ${coinSymbol} from suilend`,
+                params: {
+                    coinMetadata,
+                    amount: amount,
+                    txBytes: result.txBytesBase64,
+                },
+                action: SuiLendAction.WITHDRAW_TOKEN_SUILEND
+            });
+
+            return true;
+        } catch (error) {
+
+            elizaLogger.error(`Failed to withdraw token: ${error}`);
+
+            callback({
+                text: `Failed to withdraw token: ${error}`,
+                action: SuiLendAction.WITHDRAW_TOKEN_SUILEND
+            })
+
+            return false;
         }
-
-        const { address, amount, coinSymbol, coinType, coinMetadata } = await extractSuiLendAction(runtime, message, suiService);
-
-        const result = await suiService.withdrawBySuilend(coinType, Number(amount), address)
-
-        callback({
-            text: `Successfully withdrew ${amount} ${coinSymbol} from suilend`,
-            params: {
-                coinMetadata,
-                amount: amount,
-                txBytes: result.txBytesBase64,
-            },
-            action: SuiLendAction.WITHDRAW_TOKEN_SUILEND
-        });
-
-        return true;
     },
 
     examples: [

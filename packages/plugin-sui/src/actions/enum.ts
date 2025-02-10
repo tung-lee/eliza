@@ -4,6 +4,7 @@ export enum SuiAction {
     GET_BALANCE = "GET_BALANCE",
     GET_TOKEN = "GET_TOKEN",
     GET_PORTFOLIO = "GET_PORTFOLIO",
+    GET_METADATA_TOKEN = "GET_METADATA_TOKEN",
 }
 
 export enum SuiLendAction {

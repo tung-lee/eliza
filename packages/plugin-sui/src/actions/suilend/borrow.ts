@@ -34,35 +34,46 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting BORROW_TOKEN handler...");
+        try {
+            elizaLogger.log("Starting BORROW_TOKEN handler...");
 
-        const suiService = runtime.getService<SuiService>(
-            ServiceType.TRANSCRIPTION
-        );
+            const suiService = runtime.getService<SuiService>(
+                ServiceType.TRANSCRIPTION
+            );
 
-        const { address, amount, coinSymbol, coinType, coinMetadata } = await extractSuiLendAction(runtime, message, suiService);
+            const { address, amount, coinSymbol, coinType, coinMetadata } = await extractSuiLendAction(runtime, message, suiService);
 
-        if (!state) {
-            // Initialize or update state
-            state = (await runtime.composeState(message)) as State;
-        } else {
-            state = await runtime.updateRecentMessageState(state);
+            if (!state) {
+                // Initialize or update state
+                state = (await runtime.composeState(message)) as State;
+            } else {
+                state = await runtime.updateRecentMessageState(state);
+            }
+
+            const result = await suiService.borrowBySuilend(coinType, getAmount(amount, coinMetadata), address)
+
+
+            callback({
+                text: `Successfully borrowed ${amount} ${coinSymbol} from suilend`,
+                params: {
+                    coinMetadata,
+                    amount: getAmount(amount, coinMetadata),
+                    txBytes: result.txBytesBase64,
+                },
+                action: SuiLendAction.BORROW_TOKEN_SUILEND
+            });
+
+            return true;
+        } catch (error) {
+            elizaLogger.error("Error in BORROW_TOKEN handler", error);
+
+            callback({
+                text: `Error in borrowing token from suilend: ${error.message}`,
+                action: SuiLendAction.BORROW_TOKEN_SUILEND
+            });
+
+            return false;
         }
-
-        const result = await suiService.borrowBySuilend(coinType, getAmount(amount, coinMetadata), address)
-
-
-        callback({
-            text: `Successfully borrowed ${amount} ${coinSymbol} from suilend`,
-            content: {
-                coinMetadata,
-                amount: getAmount(amount, coinMetadata),
-                txBytes: result.txBytesBase64,
-            },
-            action: SuiLendAction.BORROW_TOKEN_SUILEND
-        });
-
-        return true;
     },
 
     examples: [
