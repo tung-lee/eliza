@@ -17,3 +17,7 @@ export enum SuiLendAction {
 export enum SentimentAction {
     FILTER_TWEETS = "FILTER_TWEETS",
 }
+
+export enum ChatDataAction {
+    INSIGHT_DATA = "INSIGHT_DATA",
+}
