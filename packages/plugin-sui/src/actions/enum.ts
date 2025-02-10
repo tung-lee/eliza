@@ -13,3 +13,7 @@ export enum SuiLendAction {
     DEPOSIT_TOKEN_SUILEND = "DEPOSIT_TOKEN_SUILEND",
     WITHDRAW_TOKEN_SUILEND = "WITHDRAW_TOKEN_SUILEND",
 }
+
+export enum SentimentAction {
+    FILTER_TWEETS = "FILTER_TWEETS",
+}

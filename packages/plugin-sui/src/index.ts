@@ -10,7 +10,7 @@ import getPortfolio from "./actions/suilend/get-portfolio.ts";
 import withdraw from "./actions/suilend/withdraw.ts";
 import repay from "./actions/suilend/repay.ts";
 import borrow from "./actions/suilend/borrow.ts";
-
+import analyzeSentimentAction from "./actions/analyze-sentiment.ts";
 // Export all actions
 export {
     transferToken,
@@ -21,7 +21,8 @@ export {
     getPortfolio,
     withdraw,
     repay,
-    borrow
+    borrow,
+    analyzeSentimentAction
 };
 
 // Export providers and services
@@ -31,7 +32,7 @@ export { SuiService };
 export const suiPlugin: Plugin = {
     name: "sui",
     description: "Sui Plugin for Eliza",
-    actions: [transferToken, swapToken, deposit, getBalance, getToken, getPortfolio, withdraw, repay, borrow],
+    actions: [transferToken, swapToken, deposit, getBalance, getToken, getPortfolio, withdraw, repay, borrow, analyzeSentimentAction],
     evaluators: [],
     providers: [walletProvider],
     services: [new SuiService()],
