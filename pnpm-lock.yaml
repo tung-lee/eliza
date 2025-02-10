@@ -32,19 +32,19 @@ importers:
     dependencies:
       '@0glabs/0g-ts-sdk':
         specifier: 0.2.1
-        version: 0.2.1(bufferutil@4.0.9)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@6.0.5))(utf-8-validate@6.0.5)
+        version: 0.2.1(bufferutil@4.0.9)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)
       '@coinbase/coinbase-sdk':
         specifier: 0.10.0
-        version: 0.10.0(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.24.1)
+        version: 0.10.0(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.24.1)
       '@deepgram/sdk':
         specifier: ^3.9.0
-        version: 3.9.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@6.0.5)
+        version: 3.9.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
       '@injectivelabs/sdk-ts':
         specifier: ^1.14.33
-        version: 1.14.40(@types/react@19.0.8)(bufferutil@4.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(utf-8-validate@6.0.5)
+        version: 1.14.40(@types/react@19.0.8)(bufferutil@4.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(utf-8-validate@5.0.10)
       '@vitest/eslint-plugin':
         specifier: 1.0.1
-        version: 1.0.1(@typescript-eslint/utils@8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3)(vitest@2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.0.1(@typescript-eslint/utils@8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3)(vitest@2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))
       amqplib:
         specifier: 0.10.5
         version: 0.10.5
@@ -54,6 +54,9 @@ importers:
       csv-parse:
         specifier: 5.6.0
         version: 5.6.0
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       langdetect:
         specifier: ^0.2.1
         version: 0.2.1
@@ -69,19 +72,25 @@ importers:
       sharp:
         specifier: 0.33.5
         version: 0.33.5
+      tus-js-client:
+        specifier: ^4.3.1
+        version: 4.3.1
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
       '@commitlint/cli':
         specifier: 18.6.1
-        version: 18.6.1(@types/node@22.12.0)(typescript@5.6.3)
+        version: 18.6.1(@types/node@22.13.1)(typescript@5.6.3)
       '@commitlint/config-conventional':
         specifier: 18.6.3
         version: 18.6.3
       '@types/jest':
         specifier: ^29.5.11
         version: 29.5.14
+      '@types/node':
+        specifier: ^22.13.1
+        version: 22.13.1
       concurrently:
         specifier: 9.1.0
         version: 9.1.0
@@ -93,13 +102,16 @@ importers:
         version: 9.1.7
       jest:
         specifier: ^29.7.0
-        version: 29.7.0(@types/node@22.12.0)(babel-plugin-macros@3.1.0)
+        version: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
       lerna:
         specifier: 8.1.5
         version: 8.1.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(babel-plugin-macros@3.1.0)(encoding@0.1.13)
       only-allow:
         specifier: 1.2.1
         version: 1.2.1
+      tsx:
+        specifier: ^4.19.2
+        version: 4.19.2
       turbo:
         specifier: 2.3.3
         version: 2.3.3
@@ -111,13 +123,13 @@ importers:
         version: 5.6.3
       viem:
         specifier: 2.21.58
-        version: 2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.24.1)
+        version: 2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.24.1)
       vite:
         specifier: 5.4.12
-        version: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+        version: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
       vitest:
         specifier: 2.1.5
-        version: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
 
   agent:
     dependencies:
@@ -863,7 +875,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^3.0.2
-        version: 3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/adapter-sqlite:
     dependencies:
@@ -885,13 +897,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^3.0.2
-        version: 3.0.4(vitest@3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 3.0.4(vitest@3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^3.0.2
-        version: 3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/adapter-sqljs:
     dependencies:
@@ -929,13 +941,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^3.0.2
-        version: 3.0.4(vitest@3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 3.0.4(vitest@3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^3.0.2
-        version: 3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-alexa:
     dependencies:
@@ -960,7 +972,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-auto:
     dependencies:
@@ -1102,7 +1114,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-eliza-home:
     dependencies:
@@ -1112,13 +1124,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^1.2.1
-        version: 1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-farcaster:
     dependencies:
@@ -1134,7 +1146,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^2.1.5
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-github:
     dependencies:
@@ -1162,7 +1174,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-instagram:
     dependencies:
@@ -1190,7 +1202,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-lens:
     dependencies:
@@ -1209,13 +1221,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^1.2.1
-        version: 1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-simsai:
     dependencies:
@@ -1305,7 +1317,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-telegram-account:
     dependencies:
@@ -1327,13 +1339,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: 1.1.3
-        version: 1.1.3(vitest@1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.1.3(vitest@1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 1.1.3
-        version: 1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-twitter:
     dependencies:
@@ -1358,13 +1370,13 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: 1.1.3
-        version: 1.1.3(vitest@1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.1.3(vitest@1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 1.1.3
-        version: 1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/client-xmtp:
     dependencies:
@@ -1596,13 +1608,13 @@ importers:
     devDependencies:
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-0x:
     dependencies:
       '@0x/swap-ts-sdk':
         specifier: 2.1.1
-        version: 2.1.1(@types/express@5.0.0)(@types/node@22.12.0)(encoding@0.1.13)
+        version: 2.1.1(@types/express@5.0.0)(@types/node@22.13.1)(encoding@0.1.13)
       '@elizaos/core':
         specifier: workspace:*
         version: link:../core
@@ -1628,7 +1640,7 @@ importers:
     devDependencies:
       vitest:
         specifier: ^2.1.5
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-abstract:
     dependencies:
@@ -1653,7 +1665,7 @@ importers:
         version: 4.9.5
       vitest:
         specifier: ^1.0.0
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-agentkit:
     dependencies:
@@ -1675,7 +1687,7 @@ importers:
     devDependencies:
       vitest:
         specifier: ^1.0.0
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-akash:
     dependencies:
@@ -1775,7 +1787,7 @@ importers:
         version: 5.1.2
       vitest:
         specifier: 2.1.8
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -1879,10 +1891,10 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^1.2.1
-        version: 1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-apro:
     dependencies:
@@ -1910,7 +1922,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
 
   packages/plugin-aptos:
     dependencies:
@@ -1934,7 +1946,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -2085,7 +2097,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-autonome:
     dependencies:
@@ -2163,7 +2175,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^2.1.5
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-b2:
     dependencies:
@@ -2352,7 +2364,7 @@ importers:
         version: 1.9.4
       vitest:
         specifier: ^2.1.5
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-coinbase:
     dependencies:
@@ -2575,7 +2587,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-dexscreener:
     dependencies:
@@ -2634,7 +2646,7 @@ importers:
         version: link:../core
       dkg.js:
         specifier: ^8.0.4
-        version: 8.0.4(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)(web-streams-polyfill@3.3.3)
+        version: 8.0.4(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)(web-streams-polyfill@3.3.3)
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@4.9.5)(yaml@2.7.0)
@@ -2851,7 +2863,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-football:
     dependencies:
@@ -2898,13 +2910,13 @@ importers:
         version: 4.0.1
       fuels:
         specifier: 0.97.2
-        version: 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+        version: 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -3075,7 +3087,7 @@ importers:
     devDependencies:
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3)
+        version: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3)
 
   packages/plugin-hyperbolic:
     dependencies:
@@ -3198,7 +3210,7 @@ importers:
         version: 29.5.14
       jest:
         specifier: 29.7.0
-        version: 29.7.0(@types/node@22.12.0)(babel-plugin-macros@3.1.0)
+        version: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.6.3)(yaml@2.7.0)
@@ -3525,7 +3537,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 3.0.2
-        version: 3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -3589,7 +3601,7 @@ importers:
         version: 5.7.3
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-multiversx:
     dependencies:
@@ -3622,7 +3634,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.5
-        version: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4054,7 +4066,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4101,7 +4113,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-primus:
     dependencies:
@@ -4210,7 +4222,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^2.1.4
-        version: 2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4277,10 +4289,10 @@ importers:
     devDependencies:
       '@vitest/coverage-v8':
         specifier: ^1.2.1
-        version: 1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))
+        version: 1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))
       vitest:
         specifier: ^1.2.1
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
 
   packages/plugin-router-nitro:
     dependencies:
@@ -4316,7 +4328,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4428,13 +4440,13 @@ importers:
         version: 1.3.2(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(rollup@4.32.1)(typescript@5.7.3)(utf-8-validate@5.0.10)
       solana-agent-kit:
         specifier: ^1.2.0
-        version: 1.4.4(@noble/hashes@1.7.1)(@solana/buffer-layout@4.0.1)(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(axios@1.7.9)(borsh@2.0.0)(buffer@6.0.3)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(handlebars@4.7.8)(react@19.0.0)(sodium-native@3.4.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+        version: 1.4.4(@noble/hashes@1.7.1)(@solana/buffer-layout@4.0.1)(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(axios@1.7.9)(borsh@2.0.0)(buffer@6.0.3)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(handlebars@4.7.8)(react@19.0.0)(sodium-native@3.4.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       tsup:
         specifier: 8.3.5
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4577,7 +4589,7 @@ importers:
         version: 1.4.0(starknet@6.18.0(encoding@0.1.13))
       vitest:
         specifier: 2.1.5
-        version: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4610,8 +4622,8 @@ importers:
         specifier: ^0.3.21
         version: 0.3.22(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-plugin-macros@3.1.0)(bufferutil@4.0.9)(typescript@5.7.3)(utf-8-validate@6.0.5)
       '@elizaos/core':
-        specifier: workspace:*
-        version: link:../core
+        specifier: 0.1.9
+        version: 0.1.9(@google-cloud/vertexai@1.9.2(encoding@0.1.13))(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(@langchain/groq@0.1.3(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)))(axios@1.7.9)(encoding@0.1.13)(react@19.0.0)(sswr@2.1.0(svelte@5.19.5))(svelte@5.19.5)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))
       '@mysten/sui':
         specifier: ^1.16.0
         version: 1.21.1(typescript@5.7.3)
@@ -4641,7 +4653,7 @@ importers:
         version: 8.3.5(@swc/core@1.10.12(@swc/helpers@0.5.15))(jiti@2.4.2)(postcss@8.5.1)(tsx@4.19.2)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: 2.1.4
-        version: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4763,7 +4775,7 @@ importers:
         version: 11.0.3
       vitest:
         specifier: 2.1.5
-        version: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4773,7 +4785,7 @@ importers:
         version: 3.2.0
       ts-node:
         specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3)
+        version: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3)
 
   packages/plugin-thirdweb:
     dependencies:
@@ -4855,7 +4867,7 @@ importers:
         version: 11.0.3
       vitest:
         specifier: 2.1.5
-        version: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
       whatwg-url:
         specifier: 7.1.0
         version: 7.1.0
@@ -4893,7 +4905,7 @@ importers:
     devDependencies:
       vitest:
         specifier: ^1.0.0
-        version: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+        version: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   packages/plugin-udio:
     dependencies:
@@ -7504,6 +7516,9 @@ packages:
 
   '@elizaos/core@0.1.8':
     resolution: {integrity: sha512-nQT5uQTQVTZJ3CrhVkK4dRdP/RuBMiOv/u3JZvMJGhY45z0Gy0gY27NEn/BBlJ4Ymt/SmqtXOul/x2hOeQen4Q==}
+
+  '@elizaos/core@0.1.9':
+    resolution: {integrity: sha512-rsAAyiPfc0HWWNVrROdQfR0BonVCgb1D1EHi7gLCrag8ZZqGd3UI/xjSiAUmU73e0dPcEo/JQzteAoehZ/ouXQ==}
 
   '@elizaos/plugin-tee@0.1.8':
     resolution: {integrity: sha512-XQV1mugkk7yRHMf4QFGztEgYC13dLSG+XwzsiSfLX78UCySDg61jJ2lUQIQ7I9Vvg2ieae2TCbN65hxmg5USHg==}
@@ -13773,6 +13788,9 @@ packages:
   '@types/node@22.12.0':
     resolution: {integrity: sha512-Fll2FZ1riMjNmlmJOdAyY5pUbkftXslB5DgEzlIuNaiWhXd00FhWxVC/r4yV/4wBb9JfImTu+jiSvXTkJ7F/gA==}
 
+  '@types/node@22.13.1':
+    resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
+
   '@types/node@22.7.5':
     resolution: {integrity: sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==}
 
@@ -16482,6 +16500,9 @@ packages:
     resolution: {integrity: sha512-lomjuFZKfM6MSAnV9aCZC9sc0qGbmZdfygNv+nCpqVkSKdCxCklLtd16O0EILGkImHw9ZpHkAnHaB+8Zxq5W6Q==}
     engines: {node: '>=8.0.0'}
 
+  combine-errors@3.0.3:
+    resolution: {integrity: sha512-C8ikRNRMygCwaTx+Ek3Yr+OuZzgZjduCOfSQBjbM8V3MfgcjSTeto/GXP6PAwKvJz/v15b7GHZvx5rOlczFw/Q==}
+
   combine-promises@1.2.0:
     resolution: {integrity: sha512-VcQB1ziGD0NXrhKxiwyNbCDmRzs/OShMs2GqW2DlU2A/Sd0nQxE1oWDAE5O0ygSx5mgQOn9eIFh7yKPgFRVkPQ==}
     engines: {node: '>=10'}
@@ -17063,6 +17084,9 @@ packages:
 
   culvert@0.1.2:
     resolution: {integrity: sha512-yi1x3EAWKjQTreYWeSd98431AV+IEE0qoDyOoaHJ7KJ21gv6HtBXHVLX74opVSGqcR8/AbjJBHAHpcOy2bj5Gg==}
+
+  custom-error-instance@2.1.1:
+    resolution: {integrity: sha512-p6JFxJc3M4OTD2li2qaHkDCw9SfMw82Ldr6OC9Je1aXiGfhx2W8p3GaoeaGrPJTUN9NirTM/KTxHWMUdR1rsUg==}
 
   cyrb53@1.0.0:
     resolution: {integrity: sha512-Elxs7damp1axRN+npujLik9K6q1QTd6nvJIVJ0IBTV8lCRsTgDeRnkGDTSxQYAbME7kzpooRXCG4UJYAyTe18w==}
@@ -21213,6 +21237,24 @@ packages:
   lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
 
+  lodash._baseiteratee@4.7.0:
+    resolution: {integrity: sha512-nqB9M+wITz0BX/Q2xg6fQ8mLkyfF7MU7eE+MNBNjTHFKeKaZAPEzEg+E8LWxKWf1DQVflNEn9N49yAuqKh2mWQ==}
+
+  lodash._basetostring@4.12.0:
+    resolution: {integrity: sha512-SwcRIbyxnN6CFEEK4K1y+zuApvWdpQdBHM/swxP962s8HIxPO3alBH5t3m/dl+f4CMUug6sJb7Pww8d13/9WSw==}
+
+  lodash._baseuniq@4.6.0:
+    resolution: {integrity: sha512-Ja1YevpHZctlI5beLA7oc5KNDhGcPixFhcqSiORHNsp/1QTv7amAXzw+gu4YOvErqVlMVyIJGgtzeepCnnur0A==}
+
+  lodash._createset@4.0.3:
+    resolution: {integrity: sha512-GTkC6YMprrJZCYU3zcqZj+jkXkrXzq3IPBcF/fIPpNEAB4hZEtXU8zp/RwKOvZl43NUmwDbyRk3+ZTbeRdEBXA==}
+
+  lodash._root@3.0.1:
+    resolution: {integrity: sha512-O0pWuFSK6x4EXhM1dhZ8gchNtG7JMqBtrHdoUFUWXD7dJnNSUze1GuyQr5sOs0aCvgGeI3o/OJW8f4ca7FDxmQ==}
+
+  lodash._stringtopath@4.8.0:
+    resolution: {integrity: sha512-SXL66C731p0xPDC5LZg4wI5H+dJo/EO4KTqOMwLYCH3+FmmfAKJEZCm6ohGpI+T1xwsDsJCfL4OnhorllvlTPQ==}
+
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
 
@@ -21290,11 +21332,17 @@ packages:
   lodash.startcase@4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
 
+  lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+
   lodash.toarray@4.4.0:
     resolution: {integrity: sha512-QyffEA3i5dma5q2490+SgCvDN0pXLmRGSyAANuVi0HQ01Pkfr9fuoKQW8wm1wGBnJITs/mS7wQvS6VshUEBFCw==}
 
   lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
+
+  lodash.uniqby@4.5.0:
+    resolution: {integrity: sha512-IRt7cfTtHy6f1aRVA5n7kT8rgN3N1nH6MOWLcHfpWG2SH19E3JksLK38MktLxZDhlAjCP9jpIXkOnRXlu6oByQ==}
 
   lodash.upperfirst@4.3.1:
     resolution: {integrity: sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==}
@@ -26791,6 +26839,10 @@ packages:
     resolution: {integrity: sha512-DUHWQAcC8BTiUZDRzAYGvpSpGLiaOQPfYXlCieQbwUvmml/LRGIe3raKdrOPOoiX0DYlzxs2nH6BoWJoZrj8hA==}
     hasBin: true
 
+  tus-js-client@4.3.1:
+    resolution: {integrity: sha512-ZLeYmjrkaU1fUsKbIi8JML52uAocjEZtBx4DKjRrqzrZa0O4MYwT6db+oqePlspV+FxXJAyFBc/L5gwUi2OFsg==}
+    engines: {node: '>=18'}
+
   tv4@1.3.0:
     resolution: {integrity: sha512-afizzfpJgvPr+eDkREK4MxJ/+r8nEEHcmitwgnPUqpaP+FpwQyadnxNoSACbgc/b1LsZYtODGoPiFxQrgJgjvw==}
     engines: {node: '>= 0.8.0'}
@@ -28638,12 +28690,12 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@0glabs/0g-ts-sdk@0.2.1(bufferutil@4.0.9)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@6.0.5))(utf-8-validate@6.0.5)':
+  '@0glabs/0g-ts-sdk@0.2.1(bufferutil@4.0.9)(ethers@6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10))(utf-8-validate@5.0.10)':
     dependencies:
       '@ethersproject/bytes': 5.7.0
       '@ethersproject/keccak256': 5.7.0
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@6.0.5)
-      open-jsonrpc-provider: 0.2.1(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      open-jsonrpc-provider: 0.2.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -28662,13 +28714,13 @@ snapshots:
 
   '@0x/contract-addresses@8.13.0': {}
 
-  '@0x/swap-ts-sdk@2.1.1(@types/express@5.0.0)(@types/node@22.12.0)(encoding@0.1.13)':
+  '@0x/swap-ts-sdk@2.1.1(@types/express@5.0.0)(@types/node@22.13.1)(encoding@0.1.13)':
     dependencies:
       '@0x/contract-addresses': 8.13.0
       '@0x/utils': 7.0.0(encoding@0.1.13)
       '@trpc/client': 10.40.0(@trpc/server@10.40.0)
       '@trpc/server': 10.40.0
-      trpc-openapi: 1.2.0(@trpc/server@10.40.0)(@types/express@5.0.0)(@types/node@22.12.0)(zod@3.22.4)
+      trpc-openapi: 1.2.0(@trpc/server@10.40.0)(@types/express@5.0.0)(@types/node@22.13.1)(zod@3.22.4)
       zod: 3.22.4
     transitivePeerDependencies:
       - '@types/express'
@@ -28776,7 +28828,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@3land/listings-sdk@0.0.7(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)':
+  '@3land/listings-sdk@0.0.7(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)':
     dependencies:
       '@coral-xyz/borsh': 0.30.1(@solana/web3.js@1.95.5(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10))
       '@irys/sdk': 0.2.11(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
@@ -28794,7 +28846,7 @@ snapshots:
       fs: 0.0.1-security
       irys: 0.0.1
       node-fetch: 3.3.2
-      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3)
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3)
       tweetnacl: 1.0.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -28819,7 +28871,7 @@ snapshots:
   '@acuminous/bitsyntax@0.1.2':
     dependencies:
       buffer-more-ints: 1.0.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       safe-buffer: 5.1.2
     transitivePeerDependencies:
       - supports-color
@@ -29997,7 +30049,7 @@ snapshots:
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
       convert-source-map: 2.0.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -30777,7 +30829,7 @@ snapshots:
       '@babel/parser': 7.26.7
       '@babel/template': 7.25.9
       '@babel/types': 7.26.7
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -31281,7 +31333,7 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@coinbase/coinbase-sdk@0.10.0(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.24.1)':
+  '@coinbase/coinbase-sdk@0.10.0(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.24.1)':
     dependencies:
       '@scure/bip32': 1.6.2
       abitype: 1.0.8(typescript@5.6.3)(zod@3.24.1)
@@ -31292,10 +31344,10 @@ snapshots:
       bip39: 3.1.0
       decimal.js: 10.5.0
       dotenv: 16.4.7
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       node-jose: 2.2.0
       secp256k1: 5.0.1
-      viem: 2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.24.1)
+      viem: 2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.24.1)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -31357,11 +31409,11 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@commitlint/cli@18.6.1(@types/node@22.12.0)(typescript@5.6.3)':
+  '@commitlint/cli@18.6.1(@types/node@22.13.1)(typescript@5.6.3)':
     dependencies:
       '@commitlint/format': 18.6.1
       '@commitlint/lint': 18.6.1
-      '@commitlint/load': 18.6.1(@types/node@22.12.0)(typescript@5.6.3)
+      '@commitlint/load': 18.6.1(@types/node@22.13.1)(typescript@5.6.3)
       '@commitlint/read': 18.6.1
       '@commitlint/types': 18.6.1
       execa: 5.1.1
@@ -31411,7 +31463,7 @@ snapshots:
       '@commitlint/rules': 18.6.1
       '@commitlint/types': 18.6.1
 
-  '@commitlint/load@18.6.1(@types/node@22.12.0)(typescript@5.6.3)':
+  '@commitlint/load@18.6.1(@types/node@22.13.1)(typescript@5.6.3)':
     dependencies:
       '@commitlint/config-validator': 18.6.1
       '@commitlint/execute-rule': 18.6.1
@@ -31419,7 +31471,7 @@ snapshots:
       '@commitlint/types': 18.6.1
       chalk: 4.1.2
       cosmiconfig: 8.3.6(typescript@5.6.3)
-      cosmiconfig-typescript-loader: 5.1.0(@types/node@22.12.0)(cosmiconfig@8.3.6(typescript@5.6.3))(typescript@5.6.3)
+      cosmiconfig-typescript-loader: 5.1.0(@types/node@22.13.1)(cosmiconfig@8.3.6(typescript@5.6.3))(typescript@5.6.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -32527,14 +32579,14 @@ snapshots:
     dependencies:
       dayjs: 1.11.13
 
-  '@deepgram/sdk@3.9.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@6.0.5)':
+  '@deepgram/sdk@3.9.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)':
     dependencies:
       '@deepgram/captions': 1.2.0
       '@types/node': 18.19.74
       cross-fetch: 3.2.0(encoding@0.1.13)
       deepmerge: 4.3.1
       events: 3.3.0
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -33680,7 +33732,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@drift-labs/vaults-sdk@0.2.68(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(utf-8-validate@5.0.10)':
+  '@drift-labs/vaults-sdk@0.2.68(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(utf-8-validate@5.0.10)':
     dependencies:
       '@coral-xyz/anchor': 0.28.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
       '@drift-labs/sdk': 2.108.0-beta.3(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.6.3)(utf-8-validate@5.0.10)
@@ -33694,7 +33746,7 @@ snapshots:
       dotenv: 16.4.5
       rpc-websockets: 7.5.1
       strict-event-emitter-types: 2.0.0
-      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.6.3)
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)
       typescript: 5.6.3
     transitivePeerDependencies:
       - '@swc/core'
@@ -34051,6 +34103,64 @@ snapshots:
       - '@langchain/ollama'
       - axios
       - cheerio
+      - encoding
+      - peggy
+      - react
+      - solid-js
+      - sswr
+      - supports-color
+      - svelte
+      - typeorm
+      - vue
+      - ws
+
+  '@elizaos/core@0.1.9(@google-cloud/vertexai@1.9.2(encoding@0.1.13))(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(@langchain/groq@0.1.3(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)))(axios@1.7.9)(encoding@0.1.13)(react@19.0.0)(sswr@2.1.0(svelte@5.19.5))(svelte@5.19.5)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))':
+    dependencies:
+      '@ai-sdk/amazon-bedrock': 1.1.0(zod@3.23.8)
+      '@ai-sdk/anthropic': 0.0.56(zod@3.23.8)
+      '@ai-sdk/google': 0.0.55(zod@3.23.8)
+      '@ai-sdk/google-vertex': 0.0.43(@google-cloud/vertexai@1.9.2(encoding@0.1.13))(zod@3.23.8)
+      '@ai-sdk/groq': 0.0.3(zod@3.23.8)
+      '@ai-sdk/mistral': 1.0.9(zod@3.23.8)
+      '@ai-sdk/openai': 1.0.5(zod@3.23.8)
+      '@fal-ai/client': 1.2.0
+      '@tavily/core': 0.0.2
+      '@types/uuid': 10.0.0
+      ai: 3.4.33(openai@4.73.0(encoding@0.1.13)(zod@3.23.8))(react@19.0.0)(sswr@2.1.0(svelte@5.19.5))(svelte@5.19.5)(vue@3.5.13(typescript@5.6.3))(zod@3.23.8)
+      anthropic-vertex-ai: 1.0.2(encoding@0.1.13)(zod@3.23.8)
+      dotenv: 16.4.5
+      fastembed: 1.14.1
+      fastestsmallesttextencoderdecoder: 1.0.22
+      gaxios: 6.7.1(encoding@0.1.13)
+      glob: 11.0.0
+      handlebars: 4.7.8
+      js-sha1: 0.7.0
+      js-tiktoken: 1.0.15
+      langchain: 0.3.6(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(@langchain/groq@0.1.3(@langchain/core@0.3.37(openai@4.73.0(encoding@0.1.13)(zod@3.23.8)))(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)))(axios@1.7.9)(encoding@0.1.13)(handlebars@4.7.8)(openai@4.73.0(encoding@0.1.13)(zod@3.23.8))(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))
+      ollama-ai-provider: 0.16.1(zod@3.23.8)
+      openai: 4.73.0(encoding@0.1.13)(zod@3.23.8)
+      pino: 9.6.0
+      pino-pretty: 13.0.0
+      tinyld: 1.3.4
+      together-ai: 0.7.0(encoding@0.1.13)
+      unique-names-generator: 4.7.1
+      uuid: 11.0.3
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - '@google-cloud/vertexai'
+      - '@langchain/anthropic'
+      - '@langchain/aws'
+      - '@langchain/cohere'
+      - '@langchain/core'
+      - '@langchain/google-genai'
+      - '@langchain/google-vertexai'
+      - '@langchain/groq'
+      - '@langchain/mistralai'
+      - '@langchain/ollama'
+      - aws-crt
+      - axios
+      - cheerio
+      - debug
       - encoding
       - peggy
       - react
@@ -34604,7 +34714,7 @@ snapshots:
   '@eslint/config-array@0.19.1':
     dependencies:
       '@eslint/object-schema': 2.1.5
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -34634,7 +34744,7 @@ snapshots:
   '@eslint/eslintrc@3.2.0':
     dependencies:
       ajv: 6.12.6
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       espree: 10.3.0
       globals: 14.0.0
       ignore: 5.3.2
@@ -35023,23 +35133,23 @@ snapshots:
 
   '@floating-ui/utils@0.2.9': {}
 
-  '@fuel-ts/abi-coder@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/abi-coder@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       type-fest: 4.33.0
     transitivePeerDependencies:
       - vitest
 
-  '@fuel-ts/abi-typegen@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/abi-typegen@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/versions': 0.97.2
       commander: 12.1.0
       glob: 10.4.5
@@ -35050,18 +35160,18 @@ snapshots:
     transitivePeerDependencies:
       - vitest
 
-  '@fuel-ts/account@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/account@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/versions': 0.97.2
       '@fuels/vm-asm': 0.58.2
       '@noble/curves': 1.8.1
@@ -35074,30 +35184,30 @@ snapshots:
       - encoding
       - vitest
 
-  '@fuel-ts/address@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/address@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@noble/hashes': 1.7.1
       bech32: 2.0.0
     transitivePeerDependencies:
       - vitest
 
-  '@fuel-ts/contract@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/contract@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/versions': 0.97.2
       '@fuels/vm-asm': 0.58.2
       ramda: 0.30.1
@@ -35105,12 +35215,12 @@ snapshots:
       - encoding
       - vitest
 
-  '@fuel-ts/crypto@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/crypto@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@noble/hashes': 1.7.1
     transitivePeerDependencies:
       - vitest
@@ -35119,11 +35229,11 @@ snapshots:
     dependencies:
       '@fuel-ts/versions': 0.97.2
 
-  '@fuel-ts/hasher@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/hasher@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@noble/hashes': 1.7.1
     transitivePeerDependencies:
       - vitest
@@ -35136,78 +35246,78 @@ snapshots:
       '@types/bn.js': 5.1.6
       bn.js: 5.2.1
 
-  '@fuel-ts/merkle@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/merkle@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/math': 0.97.2
     transitivePeerDependencies:
       - vitest
 
-  '@fuel-ts/program@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/program@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuels/vm-asm': 0.58.2
       ramda: 0.30.1
     transitivePeerDependencies:
       - encoding
       - vitest
 
-  '@fuel-ts/recipes@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/recipes@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/abi-typegen': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/contract': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-typegen': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/contract': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
-      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
     transitivePeerDependencies:
       - encoding
       - vitest
 
-  '@fuel-ts/script@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/script@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
     transitivePeerDependencies:
       - encoding
       - vitest
 
-  '@fuel-ts/transactions@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/transactions@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
     transitivePeerDependencies:
       - vitest
 
-  '@fuel-ts/utils@0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@fuel-ts/utils@0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@fuel-ts/errors': 0.97.2
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
       '@fuel-ts/versions': 0.97.2
       fflate: 0.8.2
-      vitest: 2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+      vitest: 2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
 
   '@fuel-ts/versions@0.97.2':
     dependencies:
@@ -35822,52 +35932,6 @@ snapshots:
       - subscriptions-transport-ws
       - utf-8-validate
 
-  '@injectivelabs/sdk-ts@1.14.40(@types/react@19.0.8)(bufferutil@4.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(utf-8-validate@6.0.5)':
-    dependencies:
-      '@apollo/client': 3.12.8(@types/react@19.0.8)(graphql@16.10.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@cosmjs/amino': 0.32.4
-      '@cosmjs/proto-signing': 0.32.4
-      '@cosmjs/stargate': 0.32.4(bufferutil@4.0.9)(utf-8-validate@6.0.5)
-      '@ethersproject/bytes': 5.7.0
-      '@injectivelabs/abacus-proto-ts': 1.13.3
-      '@injectivelabs/core-proto-ts': 1.13.4
-      '@injectivelabs/exceptions': 1.14.40(google-protobuf@3.21.4)
-      '@injectivelabs/grpc-web': 0.0.1(google-protobuf@3.21.4)
-      '@injectivelabs/grpc-web-node-http-transport': 0.0.2(@injectivelabs/grpc-web@0.0.1(google-protobuf@3.21.4))
-      '@injectivelabs/grpc-web-react-native-transport': 0.0.2(@injectivelabs/grpc-web@0.0.1(google-protobuf@3.21.4))
-      '@injectivelabs/indexer-proto-ts': 1.13.5
-      '@injectivelabs/mito-proto-ts': 1.13.2
-      '@injectivelabs/networks': 1.14.40(google-protobuf@3.21.4)
-      '@injectivelabs/olp-proto-ts': 1.13.1
-      '@injectivelabs/test-utils': 1.14.40(google-protobuf@3.21.4)
-      '@injectivelabs/ts-types': 1.14.40
-      '@injectivelabs/utils': 1.14.40(google-protobuf@3.21.4)
-      '@metamask/eth-sig-util': 4.0.1
-      '@noble/curves': 1.8.1
-      axios: 1.7.9
-      bech32: 2.0.0
-      bip39: 3.1.0
-      cosmjs-types: 0.9.0
-      crypto-js: 4.2.0
-      ethereumjs-util: 7.1.5
-      ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@6.0.5)
-      google-protobuf: 3.21.4
-      graphql: 16.10.0
-      http-status-codes: 2.3.0
-      keccak256: 1.0.6
-      secp256k1: 4.0.4
-      shx: 0.3.4
-      snakecase-keys: 5.5.0
-    transitivePeerDependencies:
-      - '@types/react'
-      - bufferutil
-      - debug
-      - graphql-ws
-      - react
-      - react-dom
-      - subscriptions-transport-ws
-      - utf-8-validate
-
   '@injectivelabs/sdk-ts@1.14.5(@types/react@19.0.8)(bufferutil@4.0.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(utf-8-validate@5.0.10)':
     dependencies:
       '@apollo/client': 3.12.8(@types/react@19.0.8)(graphql@16.10.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -36228,7 +36292,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -36306,6 +36370,41 @@ snapshots:
       - supports-color
       - ts-node
 
+  '@jest/core@29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))':
+    dependencies:
+      '@jest/console': 29.7.0
+      '@jest/reporters': 29.7.0
+      '@jest/test-result': 29.7.0
+      '@jest/transform': 29.7.0
+      '@jest/types': 29.6.3
+      '@types/node': 20.17.9
+      ansi-escapes: 4.3.2
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      jest-changed-files: 29.7.0
+      jest-config: 29.7.0(@types/node@20.17.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
+      jest-haste-map: 29.7.0
+      jest-message-util: 29.7.0
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-resolve-dependencies: 29.7.0
+      jest-runner: 29.7.0
+      jest-runtime: 29.7.0
+      jest-snapshot: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      jest-watcher: 29.7.0
+      micromatch: 4.0.8
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-ansi: 6.0.1
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
   '@jest/core@29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.8.4)(typescript@5.6.3))':
     dependencies:
       '@jest/console': 29.7.0
@@ -36352,7 +36451,7 @@ snapshots:
     dependencies:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       jest-mock: 29.7.0
 
   '@jest/expect-utils@29.7.0':
@@ -36379,7 +36478,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -36437,7 +36536,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -36557,7 +36656,7 @@ snapshots:
       '@jest/schemas': 29.6.3
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       '@types/yargs': 17.0.33
       chalk: 4.1.2
 
@@ -40363,11 +40462,11 @@ snapshots:
       '@nomicfoundation/ethereumjs-rlp': 5.0.4
       ethereum-cryptography: 0.1.3
 
-  '@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))':
+  '@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))':
     dependencies:
       debug: 4.4.0(supports-color@8.1.1)
       ethers: 5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
+      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
       lodash.isequal: 4.5.0
     transitivePeerDependencies:
       - supports-color
@@ -45949,11 +46048,11 @@ snapshots:
 
   '@types/bn.js@4.11.6':
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
 
   '@types/bn.js@5.1.6':
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
 
   '@types/body-parser@1.19.5':
     dependencies:
@@ -46220,7 +46319,7 @@ snapshots:
 
   '@types/graceful-fs@4.1.9':
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
 
   '@types/gtag.js@0.0.12': {}
 
@@ -46373,6 +46472,10 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
+  '@types/node@22.13.1':
+    dependencies:
+      undici-types: 6.20.0
+
   '@types/node@22.7.5':
     dependencies:
       undici-types: 6.19.8
@@ -46393,7 +46496,7 @@ snapshots:
 
   '@types/pbkdf2@3.1.2':
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
 
   '@types/pdfjs-dist@2.10.378(encoding@0.1.13)':
     dependencies:
@@ -46475,7 +46578,7 @@ snapshots:
 
   '@types/secp256k1@4.0.6':
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
 
   '@types/semver@7.5.8': {}
 
@@ -46940,7 +47043,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.22.0
       '@typescript-eslint/visitor-keys': 8.22.0
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -47102,7 +47205,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@1.1.3(vitest@1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@vitest/coverage-v8@1.1.3(vitest@1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -47117,11 +47220,11 @@ snapshots:
       std-env: 3.8.0
       test-exclude: 6.0.0
       v8-to-istanbul: 9.3.0
-      vitest: 1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+      vitest: 1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))':
+  '@vitest/coverage-v8@1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -47136,11 +47239,11 @@ snapshots:
       std-env: 3.8.0
       strip-literal: 2.1.1
       test-exclude: 6.0.0
-      vitest: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
+      vitest: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@1.6.0(vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@vitest/coverage-v8@1.6.0(vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -47155,7 +47258,7 @@ snapshots:
       std-env: 3.8.0
       strip-literal: 2.1.1
       test-exclude: 6.0.0
-      vitest: 1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+      vitest: 1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -47232,7 +47335,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@3.0.4(vitest@3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@vitest/coverage-v8@3.0.4(vitest@3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 1.0.2
@@ -47246,17 +47349,17 @@ snapshots:
       std-env: 3.8.0
       test-exclude: 7.0.1
       tinyrainbow: 2.0.0
-      vitest: 3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+      vitest: 3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.0.1(@typescript-eslint/utils@8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3)(vitest@2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))':
+  '@vitest/eslint-plugin@1.0.1(@typescript-eslint/utils@8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3))(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3)(vitest@2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0))':
     dependencies:
       eslint: 9.19.0(jiti@2.4.2)
     optionalDependencies:
       '@typescript-eslint/utils': 8.22.0(eslint@9.19.0(jiti@2.4.2))(typescript@5.6.3)
       typescript: 5.6.3
-      vitest: 2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)
+      vitest: 2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0)
 
   '@vitest/expect@0.34.6':
     dependencies:
@@ -47304,29 +47407,29 @@ snapshots:
       chai: 5.1.2
       tinyrainbow: 2.0.0
 
-  '@vitest/mocker@2.1.4(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))':
+  '@vitest/mocker@2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))':
     dependencies:
       '@vitest/spy': 2.1.4
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
 
-  '@vitest/mocker@2.1.5(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))':
+  '@vitest/mocker@2.1.5(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))':
     dependencies:
       '@vitest/spy': 2.1.5
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
 
-  '@vitest/mocker@2.1.8(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))':
+  '@vitest/mocker@2.1.8(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))':
     dependencies:
       '@vitest/spy': 2.1.8
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
 
   '@vitest/mocker@3.0.2(vite@5.4.12(@types/node@20.17.9)(terser@5.37.0))':
     dependencies:
@@ -47336,13 +47439,13 @@ snapshots:
     optionalDependencies:
       vite: 5.4.12(@types/node@20.17.9)(terser@5.37.0)
 
-  '@vitest/mocker@3.0.2(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))':
+  '@vitest/mocker@3.0.2(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))':
     dependencies:
       '@vitest/spy': 3.0.2
       estree-walker: 3.0.3
       magic-string: 0.30.17
     optionalDependencies:
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
 
   '@vitest/pretty-format@2.1.4':
     dependencies:
@@ -48897,7 +49000,7 @@ snapshots:
 
   agent-base@6.0.2:
     dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -49571,6 +49674,13 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  axios@0.27.2:
+    dependencies:
+      follow-redirects: 1.15.9
+      form-data: 4.0.1
+    transitivePeerDependencies:
+      - debug
+
   axios@0.27.2(debug@4.3.4):
     dependencies:
       follow-redirects: 1.15.9(debug@4.3.4)
@@ -49619,7 +49729,7 @@ snapshots:
 
   axios@1.7.9:
     dependencies:
-      follow-redirects: 1.15.9(debug@4.3.4)
+      follow-redirects: 1.15.9
       form-data: 4.0.1
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -50965,6 +51075,11 @@ snapshots:
       strip-ansi: 6.0.1
       wcwidth: 1.0.1
 
+  combine-errors@3.0.3:
+    dependencies:
+      custom-error-instance: 2.1.1
+      lodash.uniqby: 4.5.0
+
   combine-promises@1.2.0: {}
 
   combine-source-map@0.8.0:
@@ -51261,9 +51376,9 @@ snapshots:
     dependencies:
       layout-base: 2.0.1
 
-  cosmiconfig-typescript-loader@5.1.0(@types/node@22.12.0)(cosmiconfig@8.3.6(typescript@5.6.3))(typescript@5.6.3):
+  cosmiconfig-typescript-loader@5.1.0(@types/node@22.13.1)(cosmiconfig@8.3.6(typescript@5.6.3))(typescript@5.6.3):
     dependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       cosmiconfig: 8.3.6(typescript@5.6.3)
       jiti: 1.21.7
       typescript: 5.6.3
@@ -51388,6 +51503,36 @@ snapshots:
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-config: 29.7.0(@types/node@22.12.0)(babel-plugin-macros@3.1.0)
+      jest-util: 29.7.0
+      prompts: 2.4.2
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  create-jest@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0):
+    dependencies:
+      '@jest/types': 29.6.3
+      chalk: 4.1.2
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      jest-config: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)
+      jest-util: 29.7.0
+      prompts: 2.4.2
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  create-jest@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)):
+    dependencies:
+      '@jest/types': 29.6.3
+      chalk: 4.1.2
+      exit: 0.1.2
+      graceful-fs: 4.2.11
+      jest-config: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -51716,6 +51861,8 @@ snapshots:
 
   culvert@0.1.2: {}
 
+  custom-error-instance@2.1.1: {}
+
   cyrb53@1.0.0: {}
 
   cytoscape-cose-bilkent@4.1.0(cytoscape@3.31.0):
@@ -52000,6 +52147,10 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
+  debug@4.4.0:
+    dependencies:
+      ms: 2.1.3
+
   debug@4.4.0(supports-color@5.5.0):
     dependencies:
       ms: 2.1.3
@@ -52257,7 +52408,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  dkg-evm-module@8.0.1(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+  dkg-evm-module@8.0.1(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     dependencies:
       '@openzeppelin/contracts': 5.2.0
       '@polkadot/api': 15.5.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -52266,11 +52417,11 @@ snapshots:
       '@polkadot/util-crypto': 12.6.2(@polkadot/util@12.6.2)
       '@prb/math': 4.1.0
       dotenv: 16.4.7
-      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
+      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
       hardhat-deploy: 0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      hardhat-deploy-ethers: 0.4.2(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(hardhat-deploy@0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))
+      hardhat-deploy-ethers: 0.4.2(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(hardhat-deploy@0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))
       solady: 0.0.285
-      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@4.9.5)
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@4.9.5)
       typescript: 5.7.3
     transitivePeerDependencies:
       - '@nomicfoundation/hardhat-ethers'
@@ -52282,11 +52433,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  dkg.js@8.0.4(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)(web-streams-polyfill@3.3.3):
+  dkg.js@8.0.4(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)(web-streams-polyfill@3.3.3):
     dependencies:
       assertion-tools: 8.0.0-gamma.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)(web-streams-polyfill@3.3.3)
       axios: 0.27.2(debug@4.3.4)
-      dkg-evm-module: 8.0.1(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      dkg-evm-module: 8.0.1(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       ethers: 6.13.5(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       jsonld: 8.3.3(web-streams-polyfill@3.3.3)
       web3: 1.10.4(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
@@ -53207,7 +53358,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       escape-string-regexp: 4.0.0
       eslint-scope: 8.2.0
       eslint-visitor-keys: 4.2.0
@@ -54070,6 +54221,8 @@ snapshots:
     dependencies:
       imul: 1.0.1
 
+  follow-redirects@1.15.9: {}
+
   follow-redirects@1.15.9(debug@4.3.4):
     optionalDependencies:
       debug: 4.3.4
@@ -54280,24 +54433,24 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  fuels@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)):
+  fuels@0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0)):
     dependencies:
-      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/abi-typegen': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/contract': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-coder': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/abi-typegen': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/account': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/address': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/contract': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/crypto': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/errors': 0.97.2
-      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/hasher': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/interfaces': 0.97.2
       '@fuel-ts/math': 0.97.2
-      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/recipes': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/script': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
-      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/merkle': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/program': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/recipes': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/script': 0.97.2(encoding@0.1.13)(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/transactions': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
+      '@fuel-ts/utils': 0.97.2(vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0))
       '@fuel-ts/versions': 0.97.2
       bundle-require: 5.1.0(esbuild@0.24.2)
       chalk: 4.1.2
@@ -54840,10 +54993,10 @@ snapshots:
 
   hard-rejection@2.1.0: {}
 
-  hardhat-deploy-ethers@0.4.2(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(hardhat-deploy@0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)):
+  hardhat-deploy-ethers@0.4.2(@nomicfoundation/hardhat-ethers@3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)))(hardhat-deploy@0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10)):
     dependencies:
-      '@nomicfoundation/hardhat-ethers': 3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))
-      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
+      '@nomicfoundation/hardhat-ethers': 3.0.8(ethers@5.7.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))(hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@5.7.3)(utf-8-validate@5.0.10))
+      hardhat: 2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10)
       hardhat-deploy: 0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10)
 
   hardhat-deploy@0.12.4(bufferutil@4.0.9)(utf-8-validate@5.0.10):
@@ -54877,7 +55030,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10):
+  hardhat@2.22.18(bufferutil@4.0.9)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3))(typescript@4.9.5)(utf-8-validate@5.0.10):
     dependencies:
       '@ethersproject/abi': 5.7.0
       '@metamask/eth-sig-util': 4.0.1
@@ -54924,7 +55077,7 @@ snapshots:
       uuid: 8.3.2
       ws: 7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optionalDependencies:
-      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@4.9.5)
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@4.9.5)
       typescript: 4.9.5
     transitivePeerDependencies:
       - bufferutil
@@ -55324,7 +55477,7 @@ snapshots:
   http-proxy-agent@7.0.2:
     dependencies:
       agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -55382,14 +55535,14 @@ snapshots:
   https-proxy-agent@5.0.1:
     dependencies:
       agent-base: 6.0.2
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
   https-proxy-agent@7.0.6:
     dependencies:
       agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
     transitivePeerDependencies:
       - supports-color
 
@@ -56104,7 +56257,7 @@ snapshots:
 
   istanbul-lib-source-maps@4.0.1:
     dependencies:
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       istanbul-lib-coverage: 3.2.2
       source-map: 0.6.1
     transitivePeerDependencies:
@@ -56231,7 +56384,7 @@ snapshots:
       '@jest/expect': 29.7.0
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       co: 4.6.0
       dedent: 1.5.3(babel-plugin-macros@3.1.0)
@@ -56301,6 +56454,44 @@ snapshots:
       exit: 0.1.2
       import-local: 3.2.0
       jest-config: 29.7.0(@types/node@22.12.0)(babel-plugin-macros@3.1.0)
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  jest-cli@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0):
+    dependencies:
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@20.17.9)(typescript@5.7.3))
+      '@jest/test-result': 29.7.0
+      '@jest/types': 29.6.3
+      chalk: 4.1.2
+      create-jest: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)
+      exit: 0.1.2
+      import-local: 3.2.0
+      jest-config: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  jest-cli@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)):
+    dependencies:
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
+      '@jest/test-result': 29.7.0
+      '@jest/types': 29.6.3
+      chalk: 4.1.2
+      create-jest: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
+      exit: 0.1.2
+      import-local: 3.2.0
+      jest-config: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -56394,6 +56585,37 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
+  jest-config@29.7.0(@types/node@20.17.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)):
+    dependencies:
+      '@babel/core': 7.26.7
+      '@jest/test-sequencer': 29.7.0
+      '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.26.7)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0(babel-plugin-macros@3.1.0)
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.8
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 20.17.9
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
   jest-config@29.7.0(@types/node@20.17.9)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.8.4)(typescript@5.6.3)):
     dependencies:
       '@babel/core': 7.26.7
@@ -56451,6 +56673,67 @@ snapshots:
       strip-json-comments: 3.1.1
     optionalDependencies:
       '@types/node': 22.12.0
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
+  jest-config@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0):
+    dependencies:
+      '@babel/core': 7.26.7
+      '@jest/test-sequencer': 29.7.0
+      '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.26.7)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0(babel-plugin-macros@3.1.0)
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.8
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 22.13.1
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
+  jest-config@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)):
+    dependencies:
+      '@babel/core': 7.26.7
+      '@jest/test-sequencer': 29.7.0
+      '@jest/types': 29.6.3
+      babel-jest: 29.7.0(@babel/core@7.26.7)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0(babel-plugin-macros@3.1.0)
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.8
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    optionalDependencies:
+      '@types/node': 22.13.1
+      ts-node: 10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)
     transitivePeerDependencies:
       - babel-plugin-macros
       - supports-color
@@ -56553,7 +56836,7 @@ snapshots:
       '@jest/environment': 29.7.0
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       jest-mock: 29.7.0
       jest-util: 29.7.0
 
@@ -56582,7 +56865,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -56672,7 +56955,7 @@ snapshots:
   jest-mock@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       jest-util: 29.7.0
 
   jest-pnp-resolver@1.2.3(jest-resolve@27.5.1):
@@ -56763,7 +57046,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -56818,7 +57101,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       cjs-module-lexer: 1.4.1
       collect-v8-coverage: 1.0.2
@@ -56905,7 +57188,7 @@ snapshots:
   jest-util@29.7.0:
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       chalk: 4.1.2
       ci-info: 3.9.0
       graceful-fs: 4.2.11
@@ -56943,7 +57226,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
@@ -56958,7 +57241,7 @@ snapshots:
 
   jest-worker@29.7.0:
     dependencies:
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       jest-util: 29.7.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
@@ -57005,6 +57288,30 @@ snapshots:
       '@jest/types': 29.6.3
       import-local: 3.2.0
       jest-cli: 29.7.0(@types/node@22.12.0)(babel-plugin-macros@3.1.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  jest@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0):
+    dependencies:
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@20.17.9)(typescript@5.7.3))
+      '@jest/types': 29.6.3
+      import-local: 3.2.0
+      jest-cli: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - supports-color
+      - ts-node
+
+  jest@29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3)):
+    dependencies:
+      '@jest/core': 29.7.0(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
+      '@jest/types': 29.6.3
+      import-local: 3.2.0
+      jest-cli: 29.7.0(@types/node@22.13.1)(babel-plugin-macros@3.1.0)(ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3))
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -57950,6 +58257,25 @@ snapshots:
 
   lodash-es@4.17.21: {}
 
+  lodash._baseiteratee@4.7.0:
+    dependencies:
+      lodash._stringtopath: 4.8.0
+
+  lodash._basetostring@4.12.0: {}
+
+  lodash._baseuniq@4.6.0:
+    dependencies:
+      lodash._createset: 4.0.3
+      lodash._root: 3.0.1
+
+  lodash._createset@4.0.3: {}
+
+  lodash._root@3.0.1: {}
+
+  lodash._stringtopath@4.8.0:
+    dependencies:
+      lodash._basetostring: 4.12.0
+
   lodash.camelcase@4.3.0: {}
 
   lodash.clonedeep@4.5.0: {}
@@ -58000,9 +58326,16 @@ snapshots:
 
   lodash.startcase@4.4.0: {}
 
+  lodash.throttle@4.1.1: {}
+
   lodash.toarray@4.4.0: {}
 
   lodash.uniq@4.5.0: {}
+
+  lodash.uniqby@4.5.0:
+    dependencies:
+      lodash._baseiteratee: 4.7.0
+      lodash._baseuniq: 4.6.0
 
   lodash.upperfirst@4.3.1: {}
 
@@ -59564,7 +59897,7 @@ snapshots:
 
   node-machine-id@1.1.12: {}
 
-  node-mocks-http@1.16.2(@types/express@5.0.0)(@types/node@22.12.0):
+  node-mocks-http@1.16.2(@types/express@5.0.0)(@types/node@22.13.1):
     dependencies:
       accepts: 1.3.8
       content-disposition: 0.5.4
@@ -59578,7 +59911,7 @@ snapshots:
       type-is: 1.6.18
     optionalDependencies:
       '@types/express': 5.0.0
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
 
   node-releases@2.0.19: {}
 
@@ -59963,6 +60296,18 @@ snapshots:
       onnxruntime-common: 1.20.0-dev.20241016-2b8fc5529b
       platform: 1.3.6
       protobufjs: 7.4.0
+
+  open-jsonrpc-provider@0.2.1(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+    dependencies:
+      axios: 0.27.2
+      reconnecting-websocket: 4.4.0
+      websocket: 1.0.35
+      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - supports-color
+      - utf-8-validate
 
   open-jsonrpc-provider@0.2.1(bufferutil@4.0.9)(utf-8-validate@6.0.5):
     dependencies:
@@ -61724,7 +62069,7 @@ snapshots:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       long: 4.0.0
 
   protobufjs@7.4.0:
@@ -61739,7 +62084,7 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.17.9
+      '@types/node': 22.13.1
       long: 5.2.4
 
   protocols@2.0.1: {}
@@ -63483,7 +63828,7 @@ snapshots:
   socks-proxy-agent@8.0.5:
     dependencies:
       agent-base: 7.1.3
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       socks: 2.8.3
     transitivePeerDependencies:
       - supports-color
@@ -63591,15 +63936,15 @@ snapshots:
       - utf-8-validate
       - ws
 
-  solana-agent-kit@1.4.4(@noble/hashes@1.7.1)(@solana/buffer-layout@4.0.1)(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(axios@1.7.9)(borsh@2.0.0)(buffer@6.0.3)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(handlebars@4.7.8)(react@19.0.0)(sodium-native@3.4.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
+  solana-agent-kit@1.4.4(@noble/hashes@1.7.1)(@solana/buffer-layout@4.0.1)(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(axios@1.7.9)(borsh@2.0.0)(buffer@6.0.3)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(handlebars@4.7.8)(react@19.0.0)(sodium-native@3.4.1)(typescript@5.7.3)(utf-8-validate@5.0.10)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
     dependencies:
-      '@3land/listings-sdk': 0.0.7(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)
+      '@3land/listings-sdk': 0.0.7(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)
       '@ai-sdk/openai': 1.1.5(zod@3.24.1)
       '@bonfida/spl-name-service': 3.0.8(@solana/web3.js@1.98.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)
       '@cks-systems/manifest-sdk': 0.1.59(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)
       '@coral-xyz/anchor': 0.28.0(bufferutil@4.0.9)(encoding@0.1.13)(utf-8-validate@5.0.10)
       '@drift-labs/sdk': 2.107.0-beta.3(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.7.3)(utf-8-validate@5.0.10)
-      '@drift-labs/vaults-sdk': 0.2.68(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(utf-8-validate@5.0.10)
+      '@drift-labs/vaults-sdk': 0.2.68(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(arweave@1.15.5)(bufferutil@4.0.9)(encoding@0.1.13)(fastestsmallesttextencoderdecoder@1.0.22)(utf-8-validate@5.0.10)
       '@langchain/core': 0.3.37(openai@4.81.0(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.1))
       '@langchain/groq': 0.1.3(@langchain/core@0.3.37(openai@4.81.0(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.1)))(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       '@langchain/langgraph': 0.2.43(@langchain/core@0.3.37(openai@4.81.0(encoding@0.1.13)(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.1)))
@@ -64850,13 +65195,13 @@ snapshots:
 
   trough@2.2.0: {}
 
-  trpc-openapi@1.2.0(@trpc/server@10.40.0)(@types/express@5.0.0)(@types/node@22.12.0)(zod@3.22.4):
+  trpc-openapi@1.2.0(@trpc/server@10.40.0)(@types/express@5.0.0)(@types/node@22.13.1)(zod@3.22.4):
     dependencies:
       '@trpc/server': 10.40.0
       co-body: 6.2.0
       h3: 1.14.0
       lodash.clonedeep: 4.5.0
-      node-mocks-http: 1.16.2(@types/express@5.0.0)(@types/node@22.12.0)
+      node-mocks-http: 1.16.2(@types/express@5.0.0)(@types/node@22.13.1)
       openapi-types: 12.1.3
       zod: 3.22.4
       zod-to-json-schema: 3.24.1(zod@3.22.4)
@@ -65060,26 +65405,6 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.10.12(@swc/helpers@0.5.15)
 
-  ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@4.9.5):
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.11
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 22.12.0
-      acorn: 8.14.0
-      acorn-walk: 8.3.4
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 4.9.5
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    optionalDependencies:
-      '@swc/core': 1.10.12(@swc/helpers@0.5.15)
-
   ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -65099,6 +65424,7 @@ snapshots:
       yn: 3.1.1
     optionalDependencies:
       '@swc/core': 1.10.12(@swc/helpers@0.5.15)
+    optional: true
 
   ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.12.0)(typescript@5.7.3):
     dependencies:
@@ -65108,6 +65434,66 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 22.12.0
+      acorn: 8.14.0
+      acorn-walk: 8.3.4
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.7.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.10.12(@swc/helpers@0.5.15)
+
+  ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@4.9.5):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 22.13.1
+      acorn: 8.14.0
+      acorn-walk: 8.3.4
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 4.9.5
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.10.12(@swc/helpers@0.5.15)
+
+  ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.6.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 22.13.1
+      acorn: 8.14.0
+      acorn-walk: 8.3.4
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.6.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.10.12(@swc/helpers@0.5.15)
+
+  ts-node@10.9.2(@swc/core@1.10.12(@swc/helpers@0.5.15))(@types/node@22.13.1)(typescript@5.7.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 22.13.1
       acorn: 8.14.0
       acorn-walk: 8.3.4
       arg: 4.1.3
@@ -65329,7 +65715,7 @@ snapshots:
   tuf-js@2.2.1:
     dependencies:
       '@tufjs/models': 2.0.1
-      debug: 4.4.0(supports-color@8.1.1)
+      debug: 4.4.0
       make-fetch-happen: 13.0.1
     transitivePeerDependencies:
       - supports-color
@@ -65366,6 +65752,16 @@ snapshots:
       turbo-linux-arm64: 2.3.3
       turbo-windows-64: 2.3.3
       turbo-windows-arm64: 2.3.3
+
+  tus-js-client@4.3.1:
+    dependencies:
+      buffer-from: 1.1.2
+      combine-errors: 3.0.3
+      is-stream: 2.0.1
+      js-base64: 3.7.7
+      lodash.throttle: 4.1.1
+      proper-lockfile: 4.1.2
+      url-parse: 1.5.10
 
   tv4@1.3.0: {}
 
@@ -66089,17 +66485,17 @@ snapshots:
       - utf-8-validate
       - zod
 
-  viem@2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@6.0.5)(zod@3.24.1):
+  viem@2.21.58(bufferutil@4.0.9)(typescript@5.6.3)(utf-8-validate@5.0.10)(zod@3.24.1):
     dependencies:
       '@noble/curves': 1.7.0
       '@noble/hashes': 1.6.1
       '@scure/bip32': 1.6.0
       '@scure/bip39': 1.5.0
       abitype: 1.0.7(typescript@5.6.3)(zod@3.24.1)
-      isows: 1.0.6(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5))
+      isows: 1.0.6(ws@8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
       ox: 0.4.4(typescript@5.6.3)(zod@3.24.1)
       webauthn-p256: 0.0.10
-      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@6.0.5)
+      ws: 8.18.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optionalDependencies:
       typescript: 5.6.3
     transitivePeerDependencies:
@@ -66216,13 +66612,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@1.1.3(@types/node@22.12.0)(terser@5.37.0):
+  vite-node@1.1.3(@types/node@22.13.1)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0(supports-color@8.1.1)
       pathe: 1.1.2
       picocolors: 1.1.1
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -66270,13 +66666,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@1.2.1(@types/node@22.12.0)(terser@5.37.0):
+  vite-node@1.2.1(@types/node@22.13.1)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0(supports-color@8.1.1)
       pathe: 1.1.2
       picocolors: 1.1.1
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -66322,13 +66718,30 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@2.1.5(@types/node@22.12.0)(terser@5.37.0):
+  vite-node@2.1.4(@types/node@22.13.1)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0(supports-color@8.1.1)
+      pathe: 1.1.2
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vite-node@2.1.5(@types/node@22.13.1)(terser@5.37.0):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.0
       es-module-lexer: 1.6.0
       pathe: 1.1.2
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -66376,6 +66789,24 @@ snapshots:
       - supports-color
       - terser
 
+  vite-node@2.1.8(@types/node@22.13.1)(terser@5.37.0):
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.0(supports-color@8.1.1)
+      es-module-lexer: 1.6.0
+      pathe: 1.1.2
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
   vite-node@3.0.2(@types/node@20.17.9)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
@@ -66394,13 +66825,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-node@3.0.2(@types/node@22.12.0)(terser@5.37.0):
+  vite-node@3.0.2(@types/node@22.13.1)(terser@5.37.0):
     dependencies:
       cac: 6.7.14
       debug: 4.4.0(supports-color@8.1.1)
       es-module-lexer: 1.6.0
       pathe: 2.0.2
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -66502,6 +66933,16 @@ snapshots:
       fsevents: 2.3.3
       terser: 5.37.0
 
+  vite@5.4.12(@types/node@22.13.1)(terser@5.37.0):
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.5.1
+      rollup: 4.32.1
+    optionalDependencies:
+      '@types/node': 22.13.1
+      fsevents: 2.3.3
+      terser: 5.37.0
+
   vite@5.4.12(@types/node@22.8.4)(terser@5.37.0):
     dependencies:
       esbuild: 0.21.5
@@ -66579,7 +67020,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@1.1.3(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+  vitest@1.1.3(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 1.1.3
       '@vitest/runner': 1.1.3
@@ -66599,11 +67040,11 @@ snapshots:
       strip-literal: 1.3.0
       tinybench: 2.9.0
       tinypool: 0.8.4
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 1.1.3(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 1.1.3(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
     transitivePeerDependencies:
       - less
@@ -66724,7 +67165,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
+  vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 1.2.1
       '@vitest/runner': 1.2.1
@@ -66744,11 +67185,11 @@ snapshots:
       strip-literal: 1.3.0
       tinybench: 2.9.0
       tinypool: 0.8.4
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 1.2.1(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 1.2.1(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - less
@@ -66760,7 +67201,7 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@1.2.1(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+  vitest@1.2.1(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 1.2.1
       '@vitest/runner': 1.2.1
@@ -66780,11 +67221,11 @@ snapshots:
       strip-literal: 1.3.0
       tinybench: 2.9.0
       tinypool: 0.8.4
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 1.2.1(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 1.2.1(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
     transitivePeerDependencies:
       - less
@@ -66799,7 +67240,7 @@ snapshots:
   vitest@2.1.4(@types/node@20.17.9)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.4
-      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.4
       '@vitest/snapshot': 2.1.4
@@ -66835,7 +67276,7 @@ snapshots:
   vitest@2.1.4(@types/node@20.17.9)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.4
-      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.4
       '@vitest/snapshot': 2.1.4
@@ -66871,7 +67312,7 @@ snapshots:
   vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.4
-      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.4
       '@vitest/snapshot': 2.1.4
@@ -66907,7 +67348,7 @@ snapshots:
   vitest@2.1.4(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.4
-      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.4
       '@vitest/snapshot': 2.1.4
@@ -66940,10 +67381,118 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@2.1.5(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+  vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
+    dependencies:
+      '@vitest/expect': 2.1.4
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
+      '@vitest/pretty-format': 2.1.8
+      '@vitest/runner': 2.1.4
+      '@vitest/snapshot': 2.1.4
+      '@vitest/spy': 2.1.4
+      '@vitest/utils': 2.1.4
+      chai: 5.1.2
+      debug: 4.4.0(supports-color@8.1.1)
+      expect-type: 1.1.0
+      magic-string: 0.30.17
+      pathe: 1.1.2
+      std-env: 3.8.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinypool: 1.0.2
+      tinyrainbow: 1.2.0
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 2.1.4(@types/node@22.13.1)(terser@5.37.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 22.13.1
+      jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.1.4(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+    dependencies:
+      '@vitest/expect': 2.1.4
+      '@vitest/mocker': 2.1.4(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
+      '@vitest/pretty-format': 2.1.8
+      '@vitest/runner': 2.1.4
+      '@vitest/snapshot': 2.1.4
+      '@vitest/spy': 2.1.4
+      '@vitest/utils': 2.1.4
+      chai: 5.1.2
+      debug: 4.4.0(supports-color@8.1.1)
+      expect-type: 1.1.0
+      magic-string: 0.30.17
+      pathe: 1.1.2
+      std-env: 3.8.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinypool: 1.0.2
+      tinyrainbow: 1.2.0
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 2.1.4(@types/node@22.13.1)(terser@5.37.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 22.13.1
+      jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.5
-      '@vitest/mocker': 2.1.5(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.5(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
+      '@vitest/pretty-format': 2.1.8
+      '@vitest/runner': 2.1.5
+      '@vitest/snapshot': 2.1.5
+      '@vitest/spy': 2.1.5
+      '@vitest/utils': 2.1.5
+      chai: 5.1.2
+      debug: 4.4.0
+      expect-type: 1.1.0
+      magic-string: 0.30.17
+      pathe: 1.1.2
+      std-env: 3.8.0
+      tinybench: 2.9.0
+      tinyexec: 0.3.2
+      tinypool: 1.0.2
+      tinyrainbow: 1.2.0
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 2.1.5(@types/node@22.13.1)(terser@5.37.0)
+      why-is-node-running: 2.3.0
+    optionalDependencies:
+      '@types/node': 22.13.1
+      jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - msw
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
+  vitest@2.1.5(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+    dependencies:
+      '@vitest/expect': 2.1.5
+      '@vitest/mocker': 2.1.5(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.5
       '@vitest/snapshot': 2.1.5
@@ -66959,11 +67508,11 @@ snapshots:
       tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 2.1.5(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 2.1.5(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
     transitivePeerDependencies:
       - less
@@ -66979,7 +67528,7 @@ snapshots:
   vitest@2.1.8(@types/node@20.17.9)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.8
-      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -67015,7 +67564,7 @@ snapshots:
   vitest@2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.8
-      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -67048,10 +67597,10 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@2.1.8(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+  vitest@2.1.8(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 2.1.8
-      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 2.1.8(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 2.1.8
       '@vitest/runner': 2.1.8
       '@vitest/snapshot': 2.1.8
@@ -67067,11 +67616,11 @@ snapshots:
       tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 1.2.0
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 2.1.8(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 2.1.8(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
     transitivePeerDependencies:
       - less
@@ -67120,10 +67669,10 @@ snapshots:
       - supports-color
       - terser
 
-  vitest@3.0.2(@types/node@22.12.0)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
+  vitest@3.0.2(@types/node@22.13.1)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 3.0.2
-      '@vitest/mocker': 3.0.2(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 3.0.2(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 3.0.4
       '@vitest/runner': 3.0.2
       '@vitest/snapshot': 3.0.2
@@ -67139,11 +67688,11 @@ snapshots:
       tinyexec: 0.3.2
       tinypool: 1.0.2
       tinyrainbow: 2.0.0
-      vite: 5.4.12(@types/node@22.12.0)(terser@5.37.0)
-      vite-node: 3.0.2(@types/node@22.12.0)(terser@5.37.0)
+      vite: 5.4.12(@types/node@22.13.1)(terser@5.37.0)
+      vite-node: 3.0.2(@types/node@22.13.1)(terser@5.37.0)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 22.12.0
+      '@types/node': 22.13.1
       jsdom: 25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@6.0.5)
     transitivePeerDependencies:
       - less
@@ -67159,7 +67708,7 @@ snapshots:
   vitest@3.0.2(@types/node@22.8.4)(jsdom@25.0.1(bufferutil@4.0.9)(canvas@2.11.2(encoding@0.1.13))(utf-8-validate@5.0.10))(terser@5.37.0):
     dependencies:
       '@vitest/expect': 3.0.2
-      '@vitest/mocker': 3.0.2(vite@5.4.12(@types/node@22.12.0)(terser@5.37.0))
+      '@vitest/mocker': 3.0.2(vite@5.4.12(@types/node@22.13.1)(terser@5.37.0))
       '@vitest/pretty-format': 3.0.4
       '@vitest/runner': 3.0.2
       '@vitest/snapshot': 3.0.2
