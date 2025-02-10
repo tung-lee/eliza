@@ -87,25 +87,25 @@ export default {
         callback?: HandlerCallback) => {
         try {
             // Read data from data.ts file
-            const fileData = fs.readFileSync('src/database/data.ts', 'utf-8');
-            
+            const fileData = fs.readFileSync('../data/data.ts', 'utf-8');
+
             // Parse JSON data from file
             const parsedData = JSON.parse(fileData);
-    
+
             // Check if data is not an array or has no valid posts
             if (!Array.isArray(parsedData) || parsedData.length === 0) {
                 throw new Error('No valid posts found in the file');
             }
-    
+
             // Filter posts from parsedData to get only text
             const datapost = parsedData.map((item: any) => item.text);
-    
+
             // Convert array of posts into a single string
             const combinedText = datapost.join(' ');  // Join all posts together
-    
+
             // Create context for sentiment analysis
             const context = analyzePostSuiPrompt(message.content.text, combinedText);
-    
+
             // Send prompt to model and get response
             const response = await generateText({
                 runtime,
@@ -113,7 +113,7 @@ export default {
                 modelClass: ModelClass.MEDIUM,
                 stop: ["\n"],
             });
-    
+
             // Send callback with analysis results
             callback({
                 text: response.trim(),
@@ -122,7 +122,7 @@ export default {
                     label: response.trim()
                 }
             });
-    
+
         } catch (error) {
             console.error('Error in sentiment analysis:', error);
             throw error;
