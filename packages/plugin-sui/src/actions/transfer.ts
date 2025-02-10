@@ -21,38 +21,8 @@ import { SUI_DECIMALS } from "@mysten/sui/utils";
 import { walletProvider } from "../providers/wallet";
 import { parseAccount, SuiNetwork } from "../utils";
 import { SuiService } from "../services/sui";
-
-export interface TransferContent extends Content {
-    recipient: string;
-    amount: string | number;
-}
-
-function isTransferContent(content: Content): content is TransferContent {
-    console.log("Content for transfer", content);
-    return (
-        typeof content.recipient === "string" &&
-        (typeof content.amount === "string" ||
-            typeof content.amount === "number")
-    );
-}
-
-const transferTemplate = `Respond with a JSON markdown block containing only the extracted values. Use null for any values that cannot be determined.
-
-Example response:
-\`\`\`json
-{
-    "recipient": "0xaa000b3651bd1e57554ebd7308ca70df7c8c0e8e09d67123cc15c8a8a79342b3",
-    "amount": "1"
-}
-\`\`\`
-
-{{recentMessages}}
-
-Given the recent messages, extract the following information about the requested token transfer:
-- Recipient wallet address
-- Amount to transfer
-
-Respond with a JSON markdown block containing only the extracted values.`;
+import { SuiAction } from "./enum";
+import { extractTransferAction } from "./utils";
 
 export default {
     name: "SEND_TOKEN",
@@ -64,27 +34,9 @@ export default {
         "PAY",
     ],
     validate: async (runtime: IAgentRuntime, message: Memory) => {
-        console.log("Validating sui transfer from user:", message.userId);
-        //add custom validate logic here
-        /*
-            const adminIds = runtime.getSetting("ADMIN_USER_IDS")?.split(",") || [];
-            //console.log("Admin IDs from settings:", adminIds);
-
-            const isAdmin = adminIds.includes(message.userId);
-
-            if (isAdmin) {
-                //console.log(`Authorized transfer from user: ${message.userId}`);
-                return true;
-            }
-            else
-            {
-                //console.log(`Unauthorized transfer attempt from user: ${message.userId}`);
-                return false;
-            }
-            */
         return true;
     },
-    description: "Transfer tokens from the agent's wallet to another address",
+    description: "Transfer tokens from address to another address",
     handler: async (
         runtime: IAgentRuntime,
         message: Memory,
@@ -92,93 +44,36 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting SEND_TOKEN handler...");
-
-        const walletInfo = await walletProvider.get(runtime, message, state);
-        state.walletInfo = walletInfo;
-
-        // Initialize or update state
-        if (!state) {
-            state = (await runtime.composeState(message)) as State;
-        } else {
-            state = await runtime.updateRecentMessageState(state);
-        }
-
-        // Define the schema for the expected output
-        const transferSchema = z.object({
-            recipient: z.string(),
-            amount: z.union([z.string(), z.number()]),
-        });
-
-        // Compose transfer context
-        const transferContext = composeContext({
-            state,
-            template: transferTemplate,
-        });
-
-        // Generate transfer content with the schema
-        const content = await generateObject({
-            runtime,
-            context: transferContext,
-            schema: transferSchema,
-            modelClass: ModelClass.SMALL,
-        });
-
-        const transferContent = content.object as TransferContent;
-
-        // Validate transfer content
-        if (!isTransferContent(transferContent)) {
-            console.error("Invalid content for TRANSFER_TOKEN action.");
-            if (callback) {
-                callback({
-                    text: "Unable to process transfer request. Invalid content provided.",
-                    content: { error: "Invalid transfer content" },
-                });
-            }
-            return false;
-        }
-
         try {
-            const suiAccount = parseAccount(runtime);
-            const network = runtime.getSetting("SUI_NETWORK");
-            const suiClient = new SuiClient({
-                url: getFullnodeUrl(network as SuiNetwork),
-            });
+            elizaLogger.log("Starting SEND_TOKEN handler...");
 
-            const adjustedAmount = BigInt(
-                Number(transferContent.amount) * Math.pow(10, SUI_DECIMALS)
-            );
-            console.log(
-                `Transferring: ${transferContent.amount} tokens (${adjustedAmount} base units)`
-            );
-            const tx = new Transaction();
-            const [coin] = tx.splitCoins(tx.gas, [adjustedAmount]);
-            tx.transferObjects([coin], transferContent.recipient);
-            const executedTransaction =
-                await suiClient.signAndExecuteTransaction({
-                    signer: suiAccount,
-                    transaction: tx,
-                });
+            // const walletInfo = await walletProvider.get(runtime, message, state);
+            // state.walletInfo = walletInfo;
 
-            console.log("Transfer successful:", executedTransaction.digest);
-
-            if (callback) {
-                const suiService = runtime.getService<SuiService>(
-                    ServiceType.TRANSCRIPTION
-                );
-                const txLink = await suiService.getTransactionLink(
-                    executedTransaction.digest
-                );
-                callback({
-                    text: `Successfully transferred ${transferContent.amount} SUI to ${transferContent.recipient}, Transaction: ${txLink}`,
-                    content: {
-                        success: true,
-                        hash: executedTransaction.digest,
-                        amount: transferContent.amount,
-                        recipient: transferContent.recipient,
-                    },
-                });
+            // Initialize or update state
+            if (!state) {
+                state = (await runtime.composeState(message)) as State;
+            } else {
+                state = await runtime.updateRecentMessageState(state);
             }
+
+            const service = runtime.getService<SuiService>(
+                ServiceType.TRANSCRIPTION
+            );
+
+            const { senderAddress, recipientAddress, amount } = await extractTransferAction(runtime, message, service);
+
+            const result = await service.transferToken(amount, senderAddress, recipientAddress);
+
+            callback({
+                text: `Successfully transferred ${amount} SUI to ${recipientAddress}`,
+                params: {
+                    amount,
+                    recipient: recipientAddress,
+                    txBytes: result.txBytesBase64,
+                },
+                action: SuiAction.TRANSFER_TOKEN
+            });
 
             return true;
         } catch (error) {

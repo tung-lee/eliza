@@ -41,39 +41,39 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback
     ): Promise<boolean> => {
-        elizaLogger.log("Starting GET_BALANCE handler...");
-
-        const address = await extractAddress(runtime, message.content.text);
-
-        elizaLogger.info(`Address: ${address}`);
-
-        const coinSymbol = await extractCoinSymbol(runtime, message.content.text);
-
-        elizaLogger.info(`Coin Symbol: ${coinSymbol}`);
-
-        const service = runtime.getService<SuiService>(
-            ServiceType.TRANSCRIPTION
-        );
-
-        const coinType = await service.getTokenFromSymbol(coinSymbol) as string;
-
-        if (!coinType) {
-            callback({
-                text: `Failed to get the balance from address: ${coinSymbol} is not a valid coin symbol`,
-                action: SuiAction.GET_BALANCE
-            });
-
-            return false;
-        }
-
-        if (!state) {
-            // Initialize or update state
-            state = (await runtime.composeState(message)) as State;
-        } else {
-            state = await runtime.updateRecentMessageState(state);
-        }
-
         try {
+            elizaLogger.log("Starting GET_BALANCE handler...");
+
+            const address = await extractAddress(runtime, message.content.text);
+
+            elizaLogger.info(`Address: ${address}`);
+
+            const coinSymbol = await extractCoinSymbol(runtime, message.content.text);
+
+            elizaLogger.info(`Coin Symbol: ${coinSymbol}`);
+
+            const service = runtime.getService<SuiService>(
+                ServiceType.TRANSCRIPTION
+            );
+
+            const coinType = await service.getTokenFromSymbol(coinSymbol) as string;
+
+            if (!coinType) {
+                callback({
+                    text: `Failed to get the balance from address: ${coinSymbol} is not a valid coin symbol`,
+                    action: SuiAction.GET_BALANCE
+                });
+
+                return false;
+            }
+
+            if (!state) {
+                // Initialize or update state
+                state = (await runtime.composeState(message)) as State;
+            } else {
+                state = await runtime.updateRecentMessageState(state);
+            }
+
             const balance = await service.getBalance(address, coinType);
 
             callback({
@@ -88,6 +88,7 @@ export default {
 
             return true;
         } catch (err) {
+            elizaLogger.error(`Failed to get the balance from address: ${err}`);
 
             callback({
                 text: `Failed to get the balance from address: ${err}`,
