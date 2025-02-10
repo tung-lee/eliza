@@ -11,7 +11,7 @@ import withdraw from "./actions/suilend/withdraw.ts";
 import repay from "./actions/suilend/repay.ts";
 import borrow from "./actions/suilend/borrow.ts";
 import analyzeSentimentAction from "./actions/analyze-sentiment.ts";
-import chatData from "./actions/chat_data.ts";
+import chatData from "./actions/give-insight-data.ts";
 // Export all actions
 export {
     transferToken,
