@@ -73,3 +73,42 @@ export const extractRecipientAddressPrompt = (textContent: string) => {
         - The address should be in the correct Sui format (0x followed by hex characters)
         `;
 }
+
+export const analyzeSentimentPrompt = (textContent: string) => {
+    return `
+        Classify this Sui blockchain-related Twitter post: "${textContent}"
+        RETURN EXACTLY ONE WORD FROM: [LEGITIMATE|SCAM|NEUTRAL]
+
+        Classification Guide:
+        SCAM indicators (if ANY are present, classify as SCAM):
+        - Unrealistic promises (1000x gains, guaranteed returns, instant wealth)
+        - Fake giveaways or airdrops requiring deposits/fees
+        - Requests for private keys, seed phrases, or wallet verification
+        - Impersonation of Sui Foundation, Mysten Labs, or known figures
+        - Suspicious links to unknown/cloned websites
+        - Urgency or FOMO tactics ("limited time", "last chance", "ending soon")
+        - Requests to DM for "exclusive" opportunities
+        - Unauthorized presales or token offerings
+        - Claims of "protocol upgrades" requiring immediate action
+        - Multiple spam-like emoji patterns (🚀💰💎)
+        - Requests to connect wallets on unofficial sites
+        - Copy-paste spam campaigns
+
+        LEGITIMATE indicators:
+        - Posts from verified Sui Foundation/Mysten Labs accounts
+        - Official protocol updates with verifiable links
+        - Technical discussions about Sui/Move development
+        - Posts from known and verified Sui ecosystem projects
+        - Links to official documentation or GitHub
+        - Announcements through official channels
+
+        NEUTRAL content:
+        - General price discussions and market analysis
+        - Personal opinions about Sui ecosystem
+        - Community questions and support
+        - Memes and casual content
+        - Project reviews without investment advice
+
+        IMPORTANT: Return only one word - LEGITIMATE or SCAM or NEUTRAL. No other text allowed.
+        `;
+}
