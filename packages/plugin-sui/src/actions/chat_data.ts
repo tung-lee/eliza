@@ -67,7 +67,9 @@
 import { Action, ActionExample, Memory, IAgentRuntime, State, HandlerCallback, generateText, ModelClass, elizaLogger } from "@elizaos/core";
 import { analyzePostSuiPrompt } from "./prompts";
 import { ChatDataAction } from "./enum";
-import fs from 'fs';
+import { getFolderByUserAddress } from '../getFolderdata';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default {
     name: "DATA_INSIGHT",
@@ -86,27 +88,32 @@ export default {
         _options: { [key: string]: unknown },
         callback?: HandlerCallback) => {
         try {
-            // Read data from data.ts file
-            const fileData = fs.readFileSync('../data/data.ts', 'utf-8');
+            console.log("Starting to fetch data...");
+            
+            const rawData = await getFolderByUserAddress(
+                "0xb4b291607e91da4654cab88e5e35ba2921ef68f1b43725ef2faeae045bf5915d"
+            );
+            console.log("Raw data received:", rawData);
 
-            // Parse JSON data from file
-            const parsedData = JSON.parse(fileData);
-
-            // Check if data is not an array or has no valid posts
-            if (!Array.isArray(parsedData) || parsedData.length === 0) {
-                throw new Error('No valid posts found in the file');
+            if (!rawData || typeof rawData === "string") {
+                throw new Error('No valid data found');
             }
 
-            // Filter posts from parsedData to get only text
-            const datapost = parsedData.map((item: any) => item.text);
+            const datapost = rawData.map((item: any) => {
+                if (!item.data.msg) {
+                    return item.data.map((i: any) => i.text).filter(Boolean);
+                }
+                return [];
+            }).flat();
+            
+            console.log("Processed data posts:", datapost);
 
-            // Convert array of posts into a single string
-            const combinedText = datapost.join(' ');  // Join all posts together
+            const combinedText = datapost.join(' ');
+            console.log("Combined text length:", combinedText.length);
+            console.log("Sample of combined text:", combinedText.substring(0, 200)); 
 
-            // Create context for sentiment analysis
             const context = analyzePostSuiPrompt(message.content.text, combinedText);
 
-            // Send prompt to model and get response
             const response = await generateText({
                 runtime,
                 context,
@@ -114,7 +121,6 @@ export default {
                 stop: ["\n"],
             });
 
-            // Send callback with analysis results
             callback({
                 text: response.trim(),
                 action: ChatDataAction.INSIGHT_DATA,
@@ -124,7 +130,7 @@ export default {
             });
 
         } catch (error) {
-            console.error('Error in sentiment analysis:', error);
+            console.error('Error in data analysis:', error);
             throw error;
         }
     },
