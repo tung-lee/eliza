@@ -1,91 +1,172 @@
-# Sui Plugin for Eliza OS Platform
+# @elizaos/plugin-sui
+
+Core Sui blockchain plugin for Eliza OS that provides essential services and actions for token operations and wallet management.
 
 ## Overview
-The Sui Plugin is a comprehensive blockchain integration module designed to provide seamless interaction with the Sui blockchain ecosystem. It offers a robust set of features for wallet management, decentralized finance (DeFi) operations, and advanced blockchain analytics.
 
-# Table of Contents
-- [Project Structure](#project-structure)
-- [Core Capabilities](#core-capabilities)
-- [Wallet Operations](#wallet-operations)
-- [Lending Operations (SuiLend)](#lending-operations-suilend)
-- [Social Media Analytics](#social-media-analytics)
-- [Characteristics](#characteristics)
+This plugin provides functionality to:
 
-# Project structure
-packages/plugin-sui/
-├── .npmignore                 # NPM package ignore rules
-├── package.json              # Package configuration and dependencies
-├── src/
-│   ├── actions/              # Action handlers for different operations
-│   │   ├── suilend/         # SuiLend-specific actions
-│   │   │   ├── analyze-portfolio.ts
-│   │   │   ├── borrow.ts
-│   │   │   ├── deposit.ts
-│   │   │   ├── get-balance.ts
-│   │   │   ├── get-portfolio.ts
-│   │   │   ├── get-token.ts
-│   │   │   ├── repay.ts
-│   │   │   └── withdraw.ts
-│   │   ├── analyze-sentiment.ts
-│   │   ├── enum.ts          # Action type enums
-│   │   ├── give-insight-data.ts
-│   │   ├── prompts/        # LLM prompts for various operations
-│   │   │   └── index.ts
-│   │   ├── swap.ts
-│   │   ├── transfer.ts
-│   │   └── utils/          # Action utilities
-│   │       └── index.ts
-│   ├── providers/           # Service providers
-│   │   └── wallet.ts       # Wallet provider implementation
-│   ├── services/           # Core services
-│   │   ├── sui.ts         # Main Sui service implementation
-│   │   └── tusky.ts       # call tusky api
-│   ├── tests/             # Test files
-│   │   └── wallet.test.ts
-│   ├── environment.ts      # Environment configuration
-│   ├── index.ts           # Main plugin entry point
-│   └── utils.ts           # General utilities
+- Transfer SUI tokens between wallets
+- Query wallet balances and portfolio values
+- Track token prices and valuations
+- Manage wallet interactions with the Sui network
 
+## Installation
 
-## Core Capabilities
-![image](../../image/SuiPlugin.png)
+```bash
+npm install @elizaos/plugin-sui
+```
 
-### Wallet Operations
-- Transfer tokens between addresses
-![image](../../image/transfer.png)
+## Configuration
 
-- Swap tokens across different pools
-- Manage wallet balances
+The plugin requires the following environment variables:
 
-### Lending Operations (SuiLend)
-- Deposit tokens
-- Withdraw funds
-- Borrow against collateral
-- Repay loans
-- Check account balance
-- View comprehensive portfolio
+```env
+SUI_PRIVATE_KEY=your_private_key
+SUI_NETWORK=mainnet|testnet|devnet|localnet
+```
 
-### Social Media Analytics
-Integrate data:
-![image](../../image/data_intergration.png)
-- Analyze sentiment of blockchain-related content
-- Generate insights from collected data
+## Usage
 
-## Characteristics
-This character is designed to be:
-A technical expert in Sui blockchain
-- Security-focused and risk-aware
-- Professional and educational in communication
-- Data-driven in analysis
-- Comprehensive in blockchain knowledge
-- Structured in response format
+Import and register the plugin in your Eliza configuration:
 
+```typescript
+import { suiPlugin } from "@elizaos/plugin-sui";
 
-![image](../../image/)
+export default {
+    plugins: [suiPlugin],
+    // ... other configuration
+};
+```
 
-## Key Features
-- Integration with Sui blockchain
-- Real-time transaction processing
-- Secure and efficient token management
-- Basic DeFi functionality
-- Social media data intelligence
+## Features
+
+### Send Token
+
+Transfer SUI tokens to another address:
+
+```typescript
+// Example conversation
+User: "Send 1 SUI to 0x4f2e63be8e7fe287836e29cde6f3d5cbc96eefd0c0e3f3747668faa2ae7324b0";
+Assistant: "I'll send 1 SUI token now...";
+```
+
+### Check Wallet Balance
+
+Query wallet balance and portfolio value:
+
+```typescript
+// Example conversation
+User: "What's my wallet balance?";
+Assistant: "Your wallet contains 10.5 SUI ($42.00 USD)...";
+```
+
+## API Reference
+
+### Actions
+
+- `SEND_TOKEN`: Transfer SUI tokens to another address
+- `TRANSFER_TOKEN`: Alias for SEND_TOKEN
+- `SEND_SUI`: Alias for SEND_TOKEN
+- `PAY`: Alias for SEND_TOKEN
+
+### Providers
+
+- `walletProvider`: Manages wallet interactions with the Sui network, including balance queries and portfolio tracking
+
+## Development
+
+### Building
+
+```bash
+npm run build
+```
+
+### Testing
+
+```bash
+npm run test
+```
+
+## Dependencies
+
+- `@mysten/sui`: Core Sui blockchain interaction library
+- `bignumber.js`: Precise number handling
+- `node-cache`: Caching implementation
+- Other standard dependencies listed in package.json
+
+## Future Enhancements
+
+The following features and improvements are planned for future releases:
+
+1. **Transaction Management**
+
+    - Batch transaction processing
+    - Transaction simulation
+    - Gas optimization strategies
+    - Custom transaction builders
+    - Advanced error handling
+
+2. **Wallet Integration**
+
+    - Multi-wallet support
+    - Hardware wallet integration
+    - Social recovery options
+    - Account abstraction
+    - Transaction history tracking
+
+3. **Smart Contract Features**
+
+    - Contract deployment tools
+    - Move module templates
+    - Testing framework
+    - Upgrade management
+    - Security analysis
+
+4. **Token Operations**
+
+    - Batch token transfers
+    - NFT support enhancement
+    - Token metadata handling
+    - Custom token standards
+    - Collection management
+
+5. **Developer Tools**
+    - Enhanced debugging
+    - CLI improvements
+    - Documentation generator
+    - Integration templates
+    - Performance monitoring
+
+We welcome community feedback and contributions to help prioritize these enhancements.
+
+## Contributing
+
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
+
+## Credits
+
+This plugin integrates with and builds upon several key technologies:
+
+- [Sui Blockchain](https://sui.io/): Next-generation smart contract platform
+- [@mysten/sui.js](https://www.npmjs.com/package/@mysten/sui.js): Official Sui SDK
+- [bignumber.js](https://github.com/MikeMcl/bignumber.js/): Precise number handling
+- [node-cache](https://www.npmjs.com/package/node-cache): Caching implementation
+
+Special thanks to:
+
+- The Mysten Labs team for developing Sui
+- The Sui Developer community
+- The Sui SDK maintainers
+- The Eliza community for their contributions and feedback
+
+For more information about Sui blockchain capabilities:
+
+- [Sui Documentation](https://docs.sui.io/)
+- [Sui Developer Portal](https://sui.io/developers)
+- [Sui Network Dashboard](https://suiscan.xyz/)
+- [Sui GitHub Repository](https://github.com/MystenLabs/sui)
+
+## License
+
+This plugin is part of the Eliza project. See the main project repository for license information.
