@@ -1,7 +1,7 @@
 const TUS_API_URL = 'https://api.tusky.io'
 const TUS_API_KEY = '0eccf2a3-0be1-471e-a6d2-ab24da6678a3'
 const DEFAULT_VAULT = '2ad303cc-ac28-404b-9b30-fb742e3b036f'
-const DEFAULT_PARENT_ID = '0bdab373-a341-4072-ba8e-169c0cac3f53'
+const DEFAULT_PARENT_ID = '45c6c728-6e0d-4260-8c2e-1bb25d285874'
 
 function generateRandomString(length: number): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -69,7 +69,7 @@ export async function getFolderByUserAddress(userAddress: string) {
 
     const folder = await checkUserFolder(userAddress)
 
-    const response = await fetch(`${TUS_API_URL}/files?vaultId=${DEFAULT_VAULT}&parentId=${folder.id}`, {
+    const response = await fetch(`${TUS_API_URL}/files?vaultId=${DEFAULT_VAULT}&parentId=${DEFAULT_PARENT_ID}`, {
         method: 'GET',
         headers: {
             'Api-key': TUS_API_KEY,

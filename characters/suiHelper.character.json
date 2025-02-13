@@ -1,7 +1,7 @@
 {
     "name": "SuiHelper",
     "clients": [],
-    "modelProvider": "google",
+    "modelProvider": "openai",
     "settings": {
         "voice": {
             "model": "en_US-male-medium"

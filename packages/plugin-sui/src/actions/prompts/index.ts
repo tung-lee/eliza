@@ -116,21 +116,33 @@ export const analyzeSentimentPrompt = (textContent: string) => {
 export const analyzePostPrompt = (textContent: string, datapost: string) => {
     return `
         Analyze this post: "${textContent}" using this data: "${datapost}"
-        Provide a brief analysis with:
+        Should do the following:
+        1. Content Context & Theme Analysis
+        Please provide:
 
-1. Key Metrics:
-   - Engagement stats
-   - Sentiment (positive/negative/neutral)
+- A concise summary of the post's main message (2-3 sentences)
+- The primary topic category (e.g., policy changes, market trends, company news)
+- How this post connects to broader market/industry trends
+- Any notable timing factors that make this post particularly relevant
 
-2. Quick Analysis:
-   - Topic category
-   - Main points
-   - Market impact
+2. Impact Assessment
+- Sentiment Analysis
+- Overall tone (positive/negative/neutral)
+- Key phrases or statements that drive the sentiment
+- Any notable shifts in tone throughout the post
 
-3. Action Items:
-   - Key takeaway
-   - Risk factors
+- Engagement Drivers
 
-Be specific and data-focused. Keep it brief.
+- Identify why this post might resonate with readers
+- List key stakeholders who would be most interested
+- Analyze potential market psychology impacts
+- Detail which market segments might be most affected
+
+Output Format Preferences:
+
+- Use bullet points for clarity
+- Include relevant numbers/percentages where applicable
+- Bold key insights and conclusions
+- Separate speculation from fact-based analysis
     `;
 }
