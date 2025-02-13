@@ -20,4 +20,5 @@ export enum SentimentAction {
 
 export enum ChatDataAction {
     INSIGHT_DATA = "INSIGHT_DATA",
+    ERROR = "ERROR"
 }

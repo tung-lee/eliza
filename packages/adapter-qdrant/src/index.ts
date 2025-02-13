@@ -15,6 +15,7 @@ import {
     type Relationship,
 } from "@elizaos/core";
 
+export { QdrantClient } from "@qdrant/js-client-rest";
 
 export class QdrantDatabaseAdapter  extends DatabaseAdapter<QdrantClient>  implements IDatabaseCacheAdapter {
     db: QdrantClient;

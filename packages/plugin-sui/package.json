@@ -1,5 +1,5 @@
 {
-    "name": "elizaos-plugin-sui",
+    "name": "@elizaos/plugin-sui",
     "version": "0.1.8-alpha.11",
     "type": "module",
     "main": "dist/index.js",
@@ -29,7 +29,9 @@
         "bignumber.js": "9.1.2",
         "node-cache": "5.1.2",
         "tsup": "8.3.5",
-        "vitest": "2.1.4"
+        "vitest": "2.1.4",
+        "langchain": "^0.1.9",
+        "@pinecone-database/pinecone": "^1.1.0"
     },
     "scripts": {
         "build": "tsup --format esm --dts",
